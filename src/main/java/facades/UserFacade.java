@@ -1,6 +1,5 @@
 package facades;
 
-import entity.Role;
 import security.IUserFacade;
 import entity.User;
 import java.util.List;
