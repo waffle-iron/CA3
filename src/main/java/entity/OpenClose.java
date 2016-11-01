@@ -23,6 +23,21 @@ public class OpenClose implements Serializable {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
 
+    private int dayNullOpen;
+    private int dayNullClose;
+    private int dayOneOpen;
+    private int dayOneClose;
+    private int dayTwoOpen;
+    private int dayTwoClose;
+    private int dayThreeOpen;
+    private int dayThreeClose;
+    private int dayFourOpen;
+    private int dayFourClose;
+    private int dayFiveOpen;
+    private int dayFiveClose;
+    private int daySixOpen;
+    private int daySixClose;
+    
     public Integer getId() {
         return id;
     }
@@ -31,29 +46,6 @@ public class OpenClose implements Serializable {
         this.id = id;
     }
 
-    @Override
-    public int hashCode() {
-        int hash = 0;
-        hash += (id != null ? id.hashCode() : 0);
-        return hash;
-    }
 
-    @Override
-    public boolean equals(Object object) {
-        // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof OpenClose)) {
-            return false;
-        }
-        OpenClose other = (OpenClose) object;
-        if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
-            return false;
-        }
-        return true;
-    }
-
-    @Override
-    public String toString() {
-        return "entity.OpenClose[ id=" + id + " ]";
-    }
     
 }
