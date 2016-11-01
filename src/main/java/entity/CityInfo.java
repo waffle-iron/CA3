@@ -12,6 +12,8 @@ import javax.persistence.Basic;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
@@ -27,7 +29,6 @@ import javax.xml.bind.annotation.XmlTransient;
  * @author rasmus
  */
 @Entity
-@Table(name = "CITYINFO")
 @NamedQueries({
     @NamedQuery(name = "Cityinfo.findAll", query = "SELECT c FROM CityInfo c"),
     @NamedQuery(name = "Cityinfo.findByZipCode", query = "SELECT c FROM CityInfo c WHERE c.zipCode = :zipCode"),
@@ -37,6 +38,7 @@ public class CityInfo implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Id
+    //@GeneratedValue(strategy = GenerationType.AUTO)
     @Basic(optional = false)
     @Size(max = 45)
     @Column(name = "ZIP")
@@ -45,7 +47,8 @@ public class CityInfo implements Serializable {
     @Column(name = "CITY")
     private String city;
 //  @OneToMany(cascade = CascadeType.ALL, mappedBy = "cityinfo")
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "cityInfo")
+    
+    @OneToMany(mappedBy = "cityInfo")
     private Collection<Address> addressCollection;
 
     public CityInfo() {
