@@ -1,5 +1,6 @@
 package facades;
 
+import entity.Role;
 import security.IUserFacade;
 import entity.User;
 import java.util.List;
@@ -21,7 +22,7 @@ public class UserFacade implements IUserFacade {
   private EntityManager getEntityManager() {
     return emf.createEntityManager();
   }
-
+  
   @Override
   public IUser getUserByUserId(String id) {
     EntityManager em = getEntityManager();
