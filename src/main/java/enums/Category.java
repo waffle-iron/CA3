@@ -8,7 +8,7 @@ public enum Category {
     BEBS, LESC, HINS, HOHY, CONV,
     HAND, SHFA, WINE, VINT, VINY
 }
-public class CatSel {
+class CatSel {
 
     Category cat;
 
