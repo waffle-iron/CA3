@@ -5,51 +5,31 @@
  */
 package entity;
 
-import enums.Category;
 import java.io.Serializable;
-import java.util.Date;
-import javax.persistence.CascadeType;
+import java.math.BigDecimal;
 import javax.persistence.Entity;
-import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
-import javax.persistence.Temporal;
 
 /**
  *
  * @author TimmosQuadros
  */
 @Entity
-public class Shop implements Serializable {
+public class ShopMapPosition implements Serializable {
+
+    @OneToOne(mappedBy = "pos")
+    private Shop shop;
 
     private static final long serialVersionUID = 1L;
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
-
-    private String name;
-    private String email;
-    private String phone;
-
-    @ManyToOne(optional = false, cascade = CascadeType.PERSIST)
-    private Address adress;
     
-    private String description;
-    
-    @Enumerated
-    private Category category;
-    
-    private String googleShopId;
-    
-    @OneToOne
-    private ShopMapPosition pos;
-    
-    @Temporal(javax.persistence.TemporalType.DATE)
-    private Date updated;
-    
+    private BigDecimal x;
+    private BigDecimal y;
 
     public Integer getId() {
         return id;
@@ -69,10 +49,10 @@ public class Shop implements Serializable {
     @Override
     public boolean equals(Object object) {
         // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof Shop)) {
+        if (!(object instanceof ShopMapPosition)) {
             return false;
         }
-        Shop other = (Shop) object;
+        ShopMapPosition other = (ShopMapPosition) object;
         if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
             return false;
         }
@@ -81,7 +61,7 @@ public class Shop implements Serializable {
 
     @Override
     public String toString() {
-        return "entity.Shop[ id=" + id + " ]";
+        return "entity.ShopMapPosition[ id=" + id + " ]";
     }
-
+    
 }
