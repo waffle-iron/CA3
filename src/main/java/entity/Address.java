@@ -18,7 +18,6 @@ import javax.xml.bind.annotation.XmlRootElement;
  * @author rasmus
  */
 @Entity
-@Table(name = "address")
 @NamedQueries({
     @NamedQuery(name = "Address.findAll", query = "SELECT a FROM Address a"),
     @NamedQuery(name = "Address.findById", query = "SELECT a FROM Address a WHERE a.id = :id"),
@@ -41,16 +40,12 @@ public class Address implements Serializable {
     @Column(name = "AdditionalInfo")
     private String additionalInfo;
     @JoinColumn(name = "CityInfo_id", referencedColumnName = "ZIP")
-    @ManyToOne(optional = false)
-    private CityInfo cityInfoNew;
-//    @ManyToOne(optional = false)
-//    private CityInfo cityInfo;
+    
+    @ManyToOne
+    private CityInfo cityInfo;
     
     @OneToMany(cascade = CascadeType.PERSIST, mappedBy = "adress")
     private Collection<entity.Shop> shops;
-    
-//    @ManyToOne(optional = false, cascade = CascadeType.PERSIST)
-//    private Address adress; BELONGS IN SHOP ENITITY CLASS!!!!!
 
     public Address() {
     }
@@ -84,11 +79,11 @@ public class Address implements Serializable {
     }
 
     public CityInfo getCityinfo() {
-        return cityInfoNew;
+        return cityInfo;
     }
 
     public void setCityinfo(CityInfo cityinfo) {
-        this.cityInfoNew = cityinfo;
+        this.cityInfo = cityinfo;
     }
 
 }
