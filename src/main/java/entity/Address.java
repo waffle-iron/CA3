@@ -47,7 +47,7 @@ public class Address implements Serializable {
 //    private CityInfo cityInfo;
     
     @OneToMany(cascade = CascadeType.PERSIST, mappedBy = "adress")
-    private Collection<entity.Shop> shops;
+    private Collection<entity.Shop> shops; 
     
 //    @ManyToOne(optional = false, cascade = CascadeType.PERSIST)
 //    private Address adress; BELONGS IN SHOP ENITITY CLASS!!!!!
