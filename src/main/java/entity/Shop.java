@@ -9,7 +9,9 @@ import enums.Category;
 import java.io.Serializable;
 import java.util.Date;
 import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -17,6 +19,7 @@ import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Temporal;
+import javax.validation.constraints.Size;
 
 /**
  *
@@ -36,20 +39,22 @@ public class Shop implements Serializable {
 
     @ManyToOne(optional = false, cascade = CascadeType.PERSIST)
     private Address adress;
-    
+
+    @Column(length=500)
     private String description;
     
-    @Enumerated
+    private String website;
+
+    @Enumerated(EnumType.STRING)
     private Category category;
-    
+
     private String googleShopId;
-    
+
     @OneToOne
     private ShopMapPosition pos;
-    
+
     @Temporal(javax.persistence.TemporalType.DATE)
     private Date updated;
-    
 
     public Integer getId() {
         return id;
