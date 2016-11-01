@@ -6,12 +6,14 @@
 package entity;
 
 import java.io.Serializable;
+import java.util.Date;
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.persistence.Temporal;
 
 /**
  *
@@ -33,6 +35,12 @@ public class Shop implements Serializable {
     private Address adress;
     
     private String description;
+    
+    private String googleShopId;
+    
+    
+    @Temporal(javax.persistence.TemporalType.DATE)
+    private Date updated;
     
 
     public Integer getId() {
