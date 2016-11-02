@@ -1,1 +1,35 @@
-dummy dialog box
+<div class="container-fluid">
+
+
+    <div class="row">
+        <div class="col-xs-12">
+            <span>{{selectedShop.name}}</span> <span>{{selectedShop.category}}</span>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-xs-9">
+            <div class="row">
+                <div class="col-xs-9">
+                    {{selectedShop.description}}
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-3">a</div>
+                <div class="col-xs-3">b</div>
+                <div class="col-xs-3">c</div>
+            </div>
+        </div>
+        <div class="col-xs-3">
+            <div class="row">{{selectedShop.address.street}} {{selectedShop.address.additionalInfo}}</div>
+            <div class="row">{{selectedShop.address.cityInfoM.zipcode}} {{selectedShop.address.cityInfoM.city}}</div>
+            <div class="row">{{selectedShop.phone | phoneFilter}}</div>
+            <div class="row">{{selectedShop.email}}</div>
+            <div class="row">open/close</div>
+            <div class="row"><a href="{{selectedShop.website | hrefFilter}}">{{selectedShop.website | linkTxtFilter}}</a></div>
+            <div class="row">rating</div>
+        </div>
+    </div>
+
+</div>
+
