@@ -5,7 +5,9 @@
  */
 package security;
 
+import entity.Shop;
 import entity.User;
+import facades.exceptions.NonexistentEntityException;
 import java.util.List;
 
 /**
@@ -20,5 +22,13 @@ public interface IUserFacade {
     List<String> authenticateUser(String userName, String password);
 
     IUser getUserByUserId(String id);
+    
+    public void create(Shop shop);
+    
+    public List<Shop> getAllShops();
+    
+    public void update(Shop shop) throws NonexistentEntityException, Exception;
+    
+    public void delete(Integer id) throws NonexistentEntityException;
     
 }

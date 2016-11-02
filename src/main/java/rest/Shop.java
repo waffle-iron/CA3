@@ -5,14 +5,19 @@
  */
 package rest;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
+import facades.UserFacade;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.json.JsonException;
@@ -24,6 +29,9 @@ import javax.ws.rs.Path;
 import javax.ws.rs.GET;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
+import jsonmappers.ShopMapper;
+import security.IUserFacade;
+import security.UserFacadeFactory;
 import utils.ExternalURLRESTCall;
 
 /**
@@ -31,16 +39,20 @@ import utils.ExternalURLRESTCall;
  *
  * @author TimmosQuadros
  */
-@Path("shop2")
+@Path("shop")
 public class Shop {
 
     @Context
     private UriInfo context;
+    
+    private IUserFacade facade;
+    static Gson gson = new GsonBuilder().setPrettyPrinting().create();
 
     /**
      * Creates a new instance of Shop
      */
     public Shop() {
+        facade = UserFacadeFactory.getInstance();
     }
 
     /**
@@ -49,7 +61,8 @@ public class Shop {
      */
     @GET
     @Produces(MediaType.APPLICATION_JSON)
-    public String getJSON() throws IOException {
+    @Path("update/all")
+    public String getGoogleData() throws IOException {
         JsonObject jsonObject;
         String result = "{}";
 //        try {
@@ -64,6 +77,23 @@ public class Shop {
 //            System.err.println(ex.getStackTrace());
 //        }
         return result;
+    }
+    
+    @GET
+    @Produces(MediaType.APPLICATION_JSON)
+    @Path("all")
+    public String getAllShops() {
+        
+        
+        
+        List<entity.Shop> shops = facade.getAllShops();
+        List<jsonmappers.ShopMapper> shopmappers = new ArrayList<>();
+        
+        for(entity.Shop shop : shops) {
+            shopmappers.add(new ShopMapper(shop));
+        }
+        
+        return gson.toJson(shopmappers);
     }
 
     /**

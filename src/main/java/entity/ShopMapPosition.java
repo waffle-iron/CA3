@@ -63,5 +63,31 @@ public class ShopMapPosition implements Serializable {
     public String toString() {
         return "entity.ShopMapPosition[ id=" + id + " ]";
     }
+
+    public Shop getShop() {
+        return shop;
+    }
+
+    public void setShop(Shop shop) {
+        this.shop = shop;
+    }
+
+    public BigDecimal getX() {
+        return x;
+    }
+
+    public void setX(BigDecimal x) {
+        this.x = x;
+    }
+
+    public BigDecimal getY() {
+        return y;
+    }
+
+    public void setY(BigDecimal y) {
+        this.y = y;
+    }
+    
+    
     
 }
