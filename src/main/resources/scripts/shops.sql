@@ -1,0 +1,1 @@
+INSERT INTO `CA3DB`.`SHOP` (`CATEGORY`, `DESCRIPTION`, `EMAIL`, `GOOGLESHOPID`, `NAME`, `PHONE`, `WEBSITE`, `ADRESS_id`, `POS_ID`) VALUES ('WINE', 'very nice wineshop', 'shop@vintrovin.dk', 'ChIJiwsILgdTUkYRPRASlR0END0', 'VINTRO', '51220002', 'www.vintrovin.dk', '30', '1');

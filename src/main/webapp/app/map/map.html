@@ -1,5 +1,5 @@
-
 <div>
-  <h2>Factory Demo</h2>
-  <p>This message is fetched from a factory: <span style="font-weight: bold"> {{ctrl.msgFromMapFactory}}</span></p>
+    <ul>
+        <li ng-repeat="shop in shops"><span ng-click="showAdvanced($event)">{{shop.name}}</span></li>
+    </ul>
 </div>
