@@ -1,5 +1,5 @@
 angular.module('myApp.security', [])
-        .controller('AppLoginCtrl', function ($scope, $rootScope, $http, $window, $location, $uibModal, jwtHelper) {
+        .controller('AppLoginCtrl', function ($scope, $rootScope, $http, $window, $location, $uibModal, jwtHelper, $timeout) {
 
           $rootScope.$on('logOutEvent', function () {
             $scope.logout();
@@ -49,7 +49,10 @@ angular.module('myApp.security', [])
                     .success(function (data) {
                       $window.sessionStorage.id_token = data.token;
                       initializeFromToken($scope, $window.sessionStorage.id_token, jwtHelper);
+                      $timeout(function(){
+                          
                       $location.path("#/view1");
+                      },3000);
                     })
                     .error(function (data) {
                       delete $window.sessionStorage.id_token;
