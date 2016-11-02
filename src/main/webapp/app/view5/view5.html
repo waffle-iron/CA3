@@ -1,0 +1,27 @@
+<div class="container" ng-controller="View5Ctrl">
+  <h2>Number of Shops: {{shops.length}}</h2>
+  <input type="search" ng-model="shopfilter" placeholder="Filter shops">
+
+  <div class= row>
+    <div class="col-md-9">
+      <table class="table">
+        <thead>
+        <tr>
+          <td>ID</td>
+          <td>CATEGORY</td>
+          <td>NAME</td>
+        </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat="shop in shops">
+          <td>{{shop.id}}</td>
+          <td>{{shop.category }}</td>
+          <td>{{shop.name }}</td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+      
+</div>
+  
+  </div>
