@@ -3,31 +3,16 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package entity;
+package jsonmappers;
 
-import java.io.Serializable;
-import java.util.List;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
+import entity.OpenClose;
 
 /**
  *
  * @author TimmosQuadros
  */
-@Entity
-public class OpenClose implements Serializable {
-
-    @OneToMany(mappedBy = "openingHours")
-    private List<Shop> shops;
-
-    private static final long serialVersionUID = 1L;
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
-
+public class OpenCloseMapper {
+    
     private int dayNullOpen;
     private int dayNullClose;
     private int dayOneOpen;
@@ -42,21 +27,23 @@ public class OpenClose implements Serializable {
     private int dayFiveClose;
     private int daySixOpen;
     private int daySixClose;
-    
-    public Integer getId() {
-        return id;
-    }
 
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
-    public List<Shop> getShops() {
-        return shops;
-    }
-
-    public void setShops(List<Shop> shops) {
-        this.shops = shops;
+    public OpenCloseMapper(OpenClose openClose) {
+        dayNullOpen = openClose.getDayNullOpen();
+        dayOneOpen = openClose.getDayOneOpen();
+        dayTwoOpen = openClose.getDayTwoOpen();
+        dayThreeOpen = openClose.getDayThreeOpen();
+        dayFourOpen = openClose.getDayFourOpen();
+        dayFiveOpen = openClose.getDayFiveOpen();
+        daySixOpen = openClose.getDaySixOpen();
+        
+        dayNullClose = openClose.getDayNullClose();
+        dayOneClose = openClose.getDayOneClose();
+        dayTwoClose = openClose.getDayTwoClose();
+        dayThreeClose = openClose.getDayThreeClose();
+        dayFourClose = openClose.getDayFourClose();
+        dayFiveClose = openClose.getDayFiveClose();
+        daySixClose = openClose.getDaySixClose();
     }
 
     public int getDayNullOpen() {
@@ -172,7 +159,6 @@ public class OpenClose implements Serializable {
     }
     
     
-
-
+    
     
 }

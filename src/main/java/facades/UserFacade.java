@@ -1,7 +1,9 @@
 package facades;
 
+import entity.Shop;
 import security.IUserFacade;
 import entity.User;
+import facades.exceptions.NonexistentEntityException;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -13,9 +15,11 @@ import security.PasswordStorage;
 public class UserFacade implements IUserFacade {
 
   EntityManagerFactory emf;
+  ShopJpaController shopCtrl;
 
   public UserFacade(EntityManagerFactory emf) {
-    this.emf = emf;   
+    this.emf = emf;
+    shopCtrl = new ShopJpaController(emf);
   }
 
   private EntityManager getEntityManager() {
@@ -44,6 +48,27 @@ public class UserFacade implements IUserFacade {
       Logger.getLogger(UserFacade.class.getName()).log(Level.SEVERE, null, ex);
       return null;
     }
+  }
+  
+  //Create
+  public void create(Shop shop) {
+      shopCtrl.create(shop);
+  }
+  
+  
+  //Retrieve
+  public List<Shop> getAllShops(){
+      return shopCtrl.findShopEntities();
+  }
+  
+  //Update
+  public void update(Shop shop) throws NonexistentEntityException, Exception {
+      shopCtrl.edit(shop);
+  }
+  
+  //Delete
+  public void delete(Integer id) throws NonexistentEntityException {
+      shopCtrl.destroy(id);
   }
 
 }
