@@ -46,7 +46,7 @@ angular.module('myApp.map', ['ngRoute'])
         .service('ShopService', ['$http', function ($http) {
                 var shop = {};
                 shop.getShops = function () {
-                    return $http.get(''); //<--<-- rest API
+                    return $http.get('api/shop/all'); //<--<-- rest API
                 };
                 return shop;
 
