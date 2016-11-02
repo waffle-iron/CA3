@@ -1,10 +1,17 @@
 package test;
 
+import entity.Role;
+import entity.User;
+import facades.UserFacade;
 import org.junit.BeforeClass;
 import io.restassured.RestAssured;
 import static io.restassured.RestAssured.*;
 import io.restassured.parsing.Parser;
 import java.net.MalformedURLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.persistence.EntityManager;
+import javax.persistence.Persistence;
 import javax.servlet.ServletException;
 import org.apache.catalina.LifecycleException;
 import static org.hamcrest.Matchers.*;
@@ -14,7 +21,7 @@ import test.utils.EmbeddedTomcat;
 
 public class InitialSeedRestIntegrationTest {
 
-  private static final int SERVER_PORT = 9999;
+  private static final int SERVER_PORT = 9999; //running instance of tomcat already using 8080
   private static final String APP_CONTEXT = "/seed";
   private static EmbeddedTomcat tomcat;
 
@@ -48,6 +55,39 @@ public class InitialSeedRestIntegrationTest {
     RestAssured.port = SERVER_PORT;
     RestAssured.basePath = APP_CONTEXT;
     RestAssured.defaultParser = Parser.JSON;
+    /*
+    Insert test users to DB
+    */
+    EntityManager em = Persistence.createEntityManagerFactory("PU_TEST").createEntityManager();
+    try {
+      System.out.println("Creating TEST Users");
+      if (em.find(User.class, "user") == null) {
+        em.getTransaction().begin();
+        Role userRole = new Role("User");
+        Role adminRole = new Role("Admin");
+        User user = new User("user", "test");
+        user.addRole(userRole);
+        User admin = new User("admin", "test");
+        admin.addRole(adminRole);
+        User both = new User("user_admin", "test");
+        both.addRole(userRole);
+        both.addRole(adminRole);
+        em.persist(userRole);
+        em.persist(adminRole);
+        em.persist(user);
+        em.persist(admin);
+        em.persist(both);
+        em.getTransaction().commit();
+        System.out.println("Created TEST Users");
+      }
+    } catch (Exception ex) {
+      Logger.getLogger(UserFacade.class.getName()).log(Level.SEVERE, null, ex);
+      em.getTransaction().rollback();
+    } finally {
+      em.close();
+    }
+    
+    
   }
 
   @AfterClass
