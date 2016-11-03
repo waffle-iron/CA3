@@ -10,9 +10,10 @@ angular.module('myApp.view1', ['ngRoute'])
                 });
             }])
 
-        .controller('ShopCtrl', function ($scope, $uibModal, ShopService) {
+        .controller('ShopCtrl', function ($scope, $uibModal, ShopService, selectedShopFac, googleFactory) {
             $scope.shops = [];
-            $scope.selectedShop = {};
+            $scope.selectedShop = selectedShopFac.setSelectedShop({});
+            $scope.selectedGoogleShop = googleFactory.getOpeningHours();
             ShopService.getShops().then(
                     function (response) {
                         $scope.shops = response.data;
@@ -23,7 +24,8 @@ angular.module('myApp.view1', ['ngRoute'])
 
 
             $scope.showDialog = function (shop) {
-                $scope.selectedShop = shop;
+                $scope.selectedShop = selectedShopFac.setSelectedShop(shop);
+                
                 $uibModal.open({
                     templateUrl: 'app/view1/shop/shop.html',
                     scope: $scope
