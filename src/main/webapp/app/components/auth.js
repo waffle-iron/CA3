@@ -13,14 +13,6 @@ angular.module('myApp.security', [])
             }
           });
           
-          $rootScope.$on('shopEvent', function (evt,args) {
-            if(args.status){
-                     initializeFromToken($scope, args.token, jwtHelper);
-            }else{
-                 clearUserDetails($scope);
-            }
-          });
-
           $scope.$on("NotAuthenticatedEvent", function (event, res) {
             $scope.$emit("logOutEvent");
             
