@@ -27,9 +27,10 @@ public class ShopMapPosition implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-    
-    private BigDecimal x;
-    private BigDecimal y;
+
+    private double x;
+    private double y;
+    private double angle;
 
     public Integer getId() {
         return id;
@@ -37,31 +38,6 @@ public class ShopMapPosition implements Serializable {
 
     public void setId(Integer id) {
         this.id = id;
-    }
-
-    @Override
-    public int hashCode() {
-        int hash = 0;
-        hash += (id != null ? id.hashCode() : 0);
-        return hash;
-    }
-
-    @Override
-    public boolean equals(Object object) {
-        // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof ShopMapPosition)) {
-            return false;
-        }
-        ShopMapPosition other = (ShopMapPosition) object;
-        if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
-            return false;
-        }
-        return true;
-    }
-
-    @Override
-    public String toString() {
-        return "entity.ShopMapPosition[ id=" + id + " ]";
     }
 
     public Shop getShop() {
@@ -72,22 +48,28 @@ public class ShopMapPosition implements Serializable {
         this.shop = shop;
     }
 
-    public BigDecimal getX() {
+    public double getX() {
         return x;
     }
 
-    public void setX(BigDecimal x) {
+    public void setX(double x) {
         this.x = x;
     }
 
-    public BigDecimal getY() {
+    public double getY() {
         return y;
     }
 
-    public void setY(BigDecimal y) {
+    public void setY(double y) {
         this.y = y;
     }
-    
-    
-    
+
+    public double getAngle() {
+        return angle;
+    }
+
+    public void setAngle(double angle) {
+        this.angle = angle;
+    }
+
 }

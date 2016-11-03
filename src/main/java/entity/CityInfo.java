@@ -48,8 +48,7 @@ public class CityInfo implements Serializable {
     private String city;
 //  @OneToMany(cascade = CascadeType.ALL, mappedBy = "cityinfo")
     
-    @OneToMany(mappedBy = "cityInfo")
-    private Collection<Address> addressCollection;
+   
 
     public CityInfo() {
     }
@@ -80,13 +79,6 @@ public class CityInfo implements Serializable {
         this.city = city;
     }
 
-    @XmlTransient
-    public Collection<Address> getAddressCollection() {
-        return addressCollection;
-    }
-
-    public void setAddressCollection(Collection<Address> addressCollection) {
-        this.addressCollection = addressCollection;
-    }
+    
 
 }

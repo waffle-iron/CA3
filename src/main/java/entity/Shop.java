@@ -1,14 +1,10 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package entity;
 
 import enums.Category;
 import java.io.Serializable;
 import java.util.Date;
-import javax.persistence.CascadeType;
+import java.util.List;
+//import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
@@ -16,7 +12,9 @@ import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Temporal;
 import javax.validation.constraints.Size;
@@ -40,12 +38,9 @@ public class Shop implements Serializable {
     private String email;
     private String phone;
 
-    @ManyToOne(optional = false, cascade = CascadeType.PERSIST)
-    private Address adress;
-
-    @Column(length=500)
+    @Column(length = 500)
     private String description;
-    
+
     private String website;
 
     @Enumerated(EnumType.STRING)
@@ -58,16 +53,31 @@ public class Shop implements Serializable {
 
     @Temporal(javax.persistence.TemporalType.DATE)
     private Date updated;
-    
+
     @ManyToOne
     private OpenClose openingHours;
 
-    public Shop(String name, String email, String phone, String adress, String description, String website, Category category) {
+    @OneToMany(mappedBy = "shop")
+    private List<Picture> pictures;
+
+    @Size(max = 45)
+    private String street;
+
+    @Size(max = 45)
+    @Column(name = "HOUSENUMBER")
+    private String houseNumber;
+
+
+    @ManyToOne
+   // @Column(name = "CITYINFO")
+   @JoinColumn(name = "CITYINFO", referencedColumnName = "ZIP")
+    private CityInfo cityInfo;
+
+    public Shop(String name, String email, String phone, String street, String description, String website, Category category) {
         this.name = name;
         this.email = email;
         this.phone = phone;
-        String[] address = adress.split(" ", 2);
-        this.adress = new Address(address[0],address[1]);
+        this.street = street;
         this.description = description;
         this.website = website;
         this.category = category;
@@ -77,38 +87,12 @@ public class Shop implements Serializable {
     public Shop() {
     }
 
-    
     public Integer getId() {
         return id;
     }
 
     public void setId(Integer id) {
         this.id = id;
-    }
-
-    @Override
-    public int hashCode() {
-        int hash = 0;
-        hash += (id != null ? id.hashCode() : 0);
-        return hash;
-    }
-
-    @Override
-    public boolean equals(Object object) {
-        // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof Shop)) {
-            return false;
-        }
-        Shop other = (Shop) object;
-        if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
-            return false;
-        }
-        return true;
-    }
-
-    @Override
-    public String toString() {
-        return "entity.Shop[ id=" + id + " ]";
     }
 
     public String getName() {
@@ -135,14 +119,13 @@ public class Shop implements Serializable {
         this.phone = phone;
     }
 
-    public Address getAdress() {
-        return adress;
-    }
-
-    public void setAdress(Address adress) {
-        this.adress = adress;
-    }
-
+//    public Address getAdress() {
+//        return adress;
+//    }
+//
+//    public void setAdress(Address adress) {
+//        this.adress = adress;
+//    }
     public String getDescription() {
         return description;
     }
@@ -198,9 +181,37 @@ public class Shop implements Serializable {
     public void setOpeningHours(OpenClose openingHours) {
         this.openingHours = openingHours;
     }
-    
-    
-    
-    
+
+    public String getStreet() {
+        return street;
+    }
+
+    public void setStreet(String street) {
+        this.street = street;
+    }
+
+    public String getHousenumber() {
+        return houseNumber;
+    }
+
+    public void setHousenumber(String housenumber) {
+        this.houseNumber = housenumber;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
+
+    public CityInfo getCityInfo() {
+        return cityInfo;
+    }
+
+    public void setCityInfo(CityInfo cityInfo) {
+        this.cityInfo = cityInfo;
+    }
 
 }

@@ -5,10 +5,14 @@
  */
 package jsonmappers;
 
-import entity.Address;
+//import entity.Address;
+import entity.CityInfo;
 import entity.OpenClose;
+import entity.Picture;
 import entity.Shop;
+import entity.User;
 import enums.Category;
+import java.util.List;
 
 /**
  *
@@ -17,20 +21,30 @@ import enums.Category;
 public class ShopMapper {
     
     private String name;
-    private AddressMapper address;
+    private String street;
+    private String housenumber;
     private String phone;
     private String email;
     private OpenCloseMapper openingHours;
     private String website;
     private Category category;
     private String description;
+    private CityInfo cityInfo;
+    private User user;
+    
     
 
     public ShopMapper(Shop shop) {
         name = shop.getName();
-        address = new AddressMapper(shop.getAdress());
+       street = shop.getStreet();
+       housenumber = shop.getHousenumber();
         phone = shop.getPhone();
         email = shop.getEmail();
+        cityInfo = shop.getCityInfo();
+        user = shop.getUser();
+        
+        
+        
         OpenClose openClose = shop.getOpeningHours();
         if(openClose!=null){
             openingHours = new OpenCloseMapper(openClose);
@@ -42,13 +56,7 @@ public class ShopMapper {
         description = shop.getDescription();
     }
 
-    public AddressMapper getAddress() {
-        return address;
-    }
-
-    public void setAddress(AddressMapper address) {
-        this.address = address;
-    }
+    
 
     public OpenCloseMapper getOpeningHours() {
         return openingHours;
@@ -105,6 +113,41 @@ public class ShopMapper {
     public void setDescription(String description) {
         this.description = description;
     }
+
+    public String getStreet() {
+        return street;
+    }
+
+    public void setStreet(String street) {
+        this.street = street;
+    }
+
+    public String getHousenumber() {
+        return housenumber;
+    }
+
+    public void setHousenumber(String housenumber) {
+        this.housenumber = housenumber;
+    }
+
+    public CityInfo getCityInfo() {
+        return cityInfo;
+    }
+
+    public void setCityInfo(CityInfo cityInfo) {
+        this.cityInfo = cityInfo;
+    }
+
+   
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
+
+   
     
     
     

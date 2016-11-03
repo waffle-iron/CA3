@@ -14,8 +14,8 @@ import java.math.BigDecimal;
  */
 public class ShopMapPositionMapper {
     
-    private BigDecimal x;
-    private BigDecimal y;
+    private double x;
+    private double y;
 
     public ShopMapPositionMapper(ShopMapPosition pos) {
         x = pos.getX();
