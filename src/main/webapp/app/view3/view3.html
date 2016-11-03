@@ -1,12 +1,34 @@
 
 <div class="col-md-3"  style="border: thin lightblue solid; border-radius: 5px;padding: 1em;">
-        <form class="form-horizontal" ng-controller="View3Ctrl">
+    <form class="form-horizontal" ng-submit="saveShop()">
         <fieldset >
           <legend>Shop ID: {{shop.id}}</legend>
           <div class="form-group">
             <label for="category" class="control-label col-xs-3" ><span class="label label-info">CATEGORY:</span></label>
             <div class="col-xs-9">
-              <input type="text" ng-model="shop.category" class="form-control" id="category" placeholder="Category">
+                <select type="text" ng-model="shop.category" class="form-control" id="category" placeholder="Category">
+                    <option value="CUCA">CUCA</option>
+                    <option value="FOOD">FOOD</option>
+                    <option value="TAWA">TAWA</option>
+                    <option value="ETHN">ETHN</option>
+                    <option value="DRIN">DRIN</option>
+                    <option value="BEER">BEER</option>
+                    <option value="SEDL">SEDL</option>
+                    <option value="MUSI">MUSI</option>
+                    <option value="CURI">CURI</option>
+                    <option value="PAPE">PAPE</option>
+                    <option value="BEBS">BEBS</option>
+                    <option value="LESC">LESC</option>
+                    <option value="HINS">HINS</option>
+                    <option value="HOHY">HOHY</option>
+                    <option value="CONV">CONV</option>
+                    <option value="HAND">HAND</option>
+                    <option value="SHFA">SHFA</option>
+                    <option value="WINE">WINE</option>
+                    <option value="VINT">VINT</option>
+                    <option value="VINY">VINY</option>
+                </select>
+                
             </div>
           </div>
           <div class="form-group">
@@ -42,12 +64,11 @@
           <div class="form-group">
             <label for="Address" class="control-label col-xs-3"><span class="label label-info">ADDRESS:</span></label>
             <div class="col-xs-9">
-              <input type="text" ng-model="shop.address" class="form-control" id="address" placeholder="Address">
+              <input type="text" ng-model="shop.adressAsString" class="form-control" id="address" placeholder="Street Address - eks. Sofievej 3">
             </div>
           </div>
         </fieldset>
-      </form>
-      <div class="form-group">
+        
         <button type="submit" class="btn btn-primary">Save</button>
-      </div>
+      </form>
     </div>

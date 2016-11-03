@@ -1,10 +1,18 @@
 angular.module('myApp.security', [])
-        .controller('AppLoginCtrl', function ($scope, $rootScope, $http, $window, $location, $uibModal, jwtHelper) {
+        .controller('AppLoginCtrl', function ($scope, $rootScope, $http, $window, $location, $uibModal, jwtHelper, $timeout) {
 
           $rootScope.$on('logOutEvent', function () {
             $scope.logout();
           });
-
+          
+          $rootScope.$on('loginEvent', function (evt,args) {
+            if(args.status){
+                     initializeFromToken($scope, args.token, jwtHelper);
+            }else{
+                 clearUserDetails($scope);
+            }
+          });
+          
           $scope.$on("NotAuthenticatedEvent", function (event, res) {
             $scope.$emit("logOutEvent");
             
@@ -44,18 +52,21 @@ angular.module('myApp.security', [])
 
           clearUserDetails($scope);
 
-          $scope.login = function () {
-            $http.post('api/login', $scope.user)
-                    .success(function (data) {
-                      $window.sessionStorage.id_token = data.token;
-                      initializeFromToken($scope, $window.sessionStorage.id_token, jwtHelper);
-                      $location.path("#/view1");
-                    })
-                    .error(function (data) {
-                      delete $window.sessionStorage.id_token;
-                      clearUserDetails($scope);
-                    });
-          };
+//          $scope.login = function () {
+//            $http.post('api/login', $scope.user)
+//                    .success(function (data) {
+//                      $window.sessionStorage.id_token = data.token;
+//                      initializeFromToken($scope, $window.sessionStorage.id_token, jwtHelper);
+//                      $timeout(function(){
+//                          
+//                      $location.path("#/view1");
+//                      },3000);
+//                    })
+//                    .error(function (data) {
+//                      delete $window.sessionStorage.id_token;
+//                      clearUserDetails($scope);
+//                    });
+//          };
 
           $rootScope.logout = function () {
             $scope.isAuthenticated = false;

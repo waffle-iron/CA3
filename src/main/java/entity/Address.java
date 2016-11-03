@@ -54,6 +54,11 @@ public class Address implements Serializable {
         this.id = id;
     }
 
+    Address(String adtlInfo, String street) {
+        this.street = street;
+        this.additionalInfo = adtlInfo;
+    }
+
     public Integer getId() {
         return id;
     }
