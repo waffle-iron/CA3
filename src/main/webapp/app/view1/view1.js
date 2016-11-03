@@ -13,7 +13,7 @@ angular.module('myApp.view1', ['ngRoute'])
         .controller('ShopCtrl', function ($scope, $uibModal, ShopService, selectedShopFac, googleFactory) {
             $scope.shops = [];
             $scope.selectedShop = selectedShopFac.setSelectedShop({});
-            $scope.selectedGoogleShop = googleFactory.getOpeningHours();
+            //$scope.selectedGoogleShop = googleFactory.getOpeningHours();
             ShopService.getShops().then(
                     function (response) {
                         $scope.shops = response.data;
