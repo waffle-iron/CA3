@@ -55,6 +55,7 @@ public class ShopMapper {
         category = shop.getCategory();
         description = shop.getDescription();
         placeId = shop.getGoogleShopId();
+
     }
 
     public String getPlaceId() {
@@ -63,8 +64,10 @@ public class ShopMapper {
 
     public void setPlaceId(String placeId) {
         this.placeId = placeId;
+
     }
 
+   
     
 
     public OpenCloseMapper getOpeningHours() {
