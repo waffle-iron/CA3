@@ -23,7 +23,7 @@ public interface IUserFacade {
 
     IUser getUserByUserId(String id);
     
-    public void create(Shop shop);
+    public Shop create(Shop shop);
     
     public List<Shop> getAllShops();
     

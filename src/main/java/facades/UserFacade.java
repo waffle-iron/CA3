@@ -51,8 +51,8 @@ public class UserFacade implements IUserFacade {
   }
   
   //Create
-  public void create(Shop shop) {
-      shopCtrl.create(shop);
+  public Shop create(Shop shop) {
+      return shopCtrl.create(shop);
   }
   
   

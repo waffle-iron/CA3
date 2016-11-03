@@ -31,18 +31,19 @@ public class ShopJpaController implements Serializable {
         return emf.createEntityManager();
     }
 
-    public void create(Shop shop) {
-        EntityManager em = null;
+    public Shop create(Shop shop) {
+        EntityManager em = getEntityManager();
         try {
             em = getEntityManager();
             em.getTransaction().begin();
             em.persist(shop);
             em.getTransaction().commit();
         } finally {
-            if (em != null) {
+//            if (em != null) {
                 em.close();
-            }
+//            }
         }
+        return shop;
     }
 
     public void edit(Shop shop) throws NonexistentEntityException, Exception {

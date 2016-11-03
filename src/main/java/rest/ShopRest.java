@@ -10,6 +10,7 @@ import com.google.gson.GsonBuilder;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
+import entity.Shop;
 import facades.UserFacade;
 import java.io.IOException;
 import java.io.InputStream;
@@ -20,6 +21,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import static javafx.scene.input.KeyCode.T;
 import javax.json.JsonException;
 import javax.ws.rs.core.Context;
 import javax.ws.rs.core.UriInfo;
@@ -27,6 +29,7 @@ import javax.ws.rs.Consumes;
 import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
 import javax.ws.rs.GET;
+import javax.ws.rs.POST;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import jsonmappers.ShopMapper;
@@ -40,7 +43,7 @@ import utils.ExternalURLRESTCall;
  * @author TimmosQuadros
  */
 @Path("shop")
-public class Shop {
+public class ShopRest {
 
     @Context
     private UriInfo context;
@@ -51,12 +54,12 @@ public class Shop {
     /**
      * Creates a new instance of Shop
      */
-    public Shop() {
+    public ShopRest() {
         facade = UserFacadeFactory.getInstance();
     }
 
     /**
-     * Retrieves representation of an instance of rest.Shop
+     * Retrieves representation of an instance of rest.ShopRest
      * @return an instance of java.lang.String
      */
     @GET
@@ -97,7 +100,7 @@ public class Shop {
     }
 
     /**
-     * PUT method for updating or creating an instance of Shop
+     * PUT method for updating or creating an instance of ShopRest
      * @param content representation for the resource
      */
     @PUT
@@ -105,5 +108,14 @@ public class Shop {
     public void putXml(String content) {
     }
     
+    
+    @POST
+    @Consumes({MediaType.APPLICATION_JSON})
+    @Produces({MediaType.APPLICATION_JSON})
+    public String addShop(String content){      
+        Shop s = gson.fromJson(content, Shop.class);
+        Shop newShop = facade.create(s);
+        return gson.toJson(newShop);
+    }
     
 }
