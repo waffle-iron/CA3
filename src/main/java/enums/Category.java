@@ -3,7 +3,7 @@ package enums;
 
 
 public enum Category {
-    CUCA, FOOD, TAAV, ETHN, DRIN, BEER,
+    CUCA, FOOD, TAWA, ETHN, DRIN, BEER,
     SEDL, MUSI, CURI, PAPE,
     BEBS, LESC, HINS, HOHY, CONV,
     HAND, SHFA, WINE, VINT, VINY
@@ -23,7 +23,7 @@ class CatSel {
                 oops();
                 break;
 
-            case TAAV:
+            case TAWA:
                 oops();
                 break;
             case ETHN:
