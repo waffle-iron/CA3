@@ -1351,35 +1351,5 @@ INSERT INTO CITYINFO (ZIP, CITY) VALUES ('950', 'Porkeri');
 INSERT INTO CITYINFO (ZIP, CITY) VALUES ('960', 'Hov');
 INSERT INTO CITYINFO (ZIP, CITY) VALUES ('970', 'Sumba');
 
-INSERT INTO ADDRESS (Street,CityInfo_id) VALUES ('Nørrebrogade','2200');
-INSERT INTO ADDRESS (Street,CityInfo_id) VALUES ('Jagvej','2200');
-INSERT INTO ADDRESS (Street,CityInfo_id) VALUES ('Røde Plads','2200');
-INSERT INTO ADDRESS (Street,CityInfo_id) VALUES ('Lygten','2200');
-INSERT INTO ADDRESS (Street,CityInfo_id) VALUES ('Sorte Plads','2200');
-INSERT INTO ADDRESS (Street,CityInfo_id) VALUES ('Tagensvej','2200');
-INSERT INTO ADDRESS (Street,CityInfo_id) VALUES ('Mimersgade','2200');
-INSERT INTO ADDRESS (Street,CityInfo_id) VALUES ('Stefansgade','2200');
-INSERT INTO ADDRESS (Street,CityInfo_id) VALUES ('Nørrebroparken','2200');
-INSERT INTO ADDRESS (Street,CityInfo_id) VALUES ('Ågade','2200');
-INSERT INTO ADDRESS (Street,CityInfo_id) VALUES ('Jægersborggade','2200');
-INSERT INTO ADDRESS (Street,CityInfo_id) VALUES ('Rantzauzgade','2200');
-INSERT INTO ADDRESS (Street,CityInfo_id) VALUES ('Assistentens kirkegaard','2200');
-INSERT INTO ADDRESS (Street,CityInfo_id) VALUES ('Møllegade','2200');
-INSERT INTO ADDRESS (Street,CityInfo_id) VALUES ('Guldbergsgade','2200');
-INSERT INTO ADDRESS (Street,CityInfo_id) VALUES ('Birkegade','2200');
-INSERT INTO ADDRESS (Street,CityInfo_id) VALUES ('Ahornsgade  ','2200');
-INSERT INTO ADDRESS (Street,CityInfo_id) VALUES ('Blegdamsvej','2200');
-INSERT INTO ADDRESS (Street,CityInfo_id) VALUES ('Elmegade','2200');
-INSERT INTO ADDRESS (Street,CityInfo_id) VALUES ('Sankt Hans Torv','2200');
-INSERT INTO ADDRESS (Street,CityInfo_id) VALUES ('Sankt Hans Gade','2200');
-INSERT INTO ADDRESS (Street,CityInfo_id) VALUES ('Fælledvej','2200');
-INSERT INTO ADDRESS (Street,CityInfo_id) VALUES ('Blågårds Plads','2200');
-INSERT INTO ADDRESS (Street,CityInfo_id) VALUES ('Blågårdsgade','2200');
-INSERT INTO ADDRESS (Street,CityInfo_id) VALUES ('Ravnsborggade','2200');
-INSERT INTO ADDRESS (Street,CityInfo_id) VALUES ('Ryesgade','2200');
-INSERT INTO ADDRESS (Street,CityInfo_id) VALUES ('Peblinge Dossering','2200');
-INSERT INTO ADDRESS (Street,CityInfo_id) VALUES ('Dronning Louises Bro','2200');
-INSERT INTO ADDRESS (Street,CityInfo_id) VALUES ('Sortedam Dossering','2200');
-
 
 
