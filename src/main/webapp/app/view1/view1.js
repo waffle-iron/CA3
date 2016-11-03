@@ -10,51 +10,6 @@ angular.module('myApp.view1', ['ngRoute'])
                 });
             }])
 
-        .filter('phoneFilter', function () {
-
-            return function (rawPhoneNumber) {
-
-                var phoneNumber = rawPhoneNumber;
-                phoneNumber = phoneNumber.replace(/ /g, '');
-                if(phoneNumber[0]!='+'){
-                    phoneNumber = '+45'+ phoneNumber;
-                }
-                phoneNumber = phoneNumber.substr(0,3) + ' '
-                        +phoneNumber.substr(3,2) + ' '
-                        +phoneNumber.substr(5,2) + ' '
-                        +phoneNumber.substr(7,2) + ' '
-                        +phoneNumber.substring(9,phoneNumber.length);
-
-
-                return phoneNumber;
-            }
-
-        })
-        
-        .filter('hrefFilter', function () {
-
-            return function (rawLink) {
-
-                var link = rawLink;
-                if(!link.match(/http/)){
-                    link = 'http://' + link;
-                }
-                return link;
-            }
-
-        })
-        
-        .filter('linkTxtFilter', function () {
-
-            return function (rawLink) {
-
-                var link = rawLink;
-                link = link.replace(/https?:\/\//,'');
-                return link;
-            }
-
-        })
-
         .controller('ShopCtrl', function ($scope, $uibModal, ShopService) {
             $scope.shops = [];
             $scope.selectedShop = {};
