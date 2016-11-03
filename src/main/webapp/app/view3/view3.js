@@ -12,19 +12,21 @@ angular.module('myApp.view3', ['ngRoute'])
 .controller('addShopCtrl', ["$window","$rootScope","$location","$http","$scope","$timeout",function($window,$rootScope,$location,$http,$scope,$timeout){
 
  $scope.saveShop = function () {
-            $http.post('api/shop', $scope.user)
+            $http.post('api/shop',$scope.shop)
                     .success(function (data) {
-                      $window.sessionStorage.id_token = data.token;
-                    $rootScope.$broadcast("shopEvent",{token:data.token, status:true});
+//                      $window.sessionStorage.id_token = data.token;
+//                    $rootScope.$broadcast("shopEvent",{token:data.token, status:true});
+                       console.log("SUCCESS"); 
                       $timeout(function(){
                           
                       $location.path("#/view1");
                       },100);
                     })
                     .error(function (data) {
-                      delete $window.sessionStorage.id_token;
-               $rootScope.$broadcast("shopEvent",{token:null, status:false});
+//                      delete $window.sessionStorage.id_token;
+                            console.log("ERROR"); 
                     });
+//               $rootScope.$broadcast("shopEvent",{token:null, status:false});
           };
 
 }]);
