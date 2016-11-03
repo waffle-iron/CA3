@@ -24,7 +24,7 @@ INSERT INTO 'CA3DB'.'SHOP' ('NAME','ADDRESS','ZIP','PHONE') VALUES ('BG Shop','�
 INSERT INTO 'CA3DB'.'SHOP' ('NAME','ADDRESS','ZIP','PHONE') VALUES ('Hellig Kors Kirke','Kapelvej 38','2200',' 35359822');
 INSERT INTO 'CA3DB'.'SHOP' ('NAME','ADDRESS','ZIP','PHONE') VALUES ('GUL','Blågårdsgade 18','2200','25317545');
 INSERT INTO 'CA3DB'.'SHOP' ('NAME','ADDRESS','ZIP','PHONE') VALUES ('www.ren-linne.com','Ravnsborggade 19, 2. th','2200','25568485');
-INSERT INTO 'CA3DB'.'SHOP' ('NAME','ADDRESS','ZIP','PHONE') VALUES ('Den Lille Billedskole' I Skrotlaboratoriet','Fensmarkgade 23 butik 2','2200','20 66 90 77');
+INSERT INTO 'CA3DB'.'SHOP' ('NAME','ADDRESS','ZIP','PHONE') VALUES ('Den Lille Billedskole I Skrotlaboratoriet','Fensmarkgade 23 butik 2','2200','20 66 90 77');
 INSERT INTO 'CA3DB'.'SHOP' ('NAME','ADDRESS','ZIP','PHONE') VALUES ('Ravnsborg Vinbar','Ravnsborggade 19','2200','61 46 34 39');
 INSERT INTO 'CA3DB'.'SHOP' ('NAME','ADDRESS','ZIP','PHONE') VALUES ('Phenomenon ApS','Nørrebrogade 7 St th','2200','35 34 33 27');
 INSERT INTO 'CA3DB'.'SHOP' ('NAME','ADDRESS','ZIP','PHONE') VALUES ('Cafe Blågårds Apotek','Blågårdsgade 20','2200','35 37 24 42');
@@ -57,7 +57,7 @@ INSERT INTO 'CA3DB'.'SHOP' ('NAME','ADDRESS','ZIP','PHONE') VALUES ('Bindia','El
 INSERT INTO 'CA3DB'.'SHOP' ('NAME','ADDRESS','ZIP','PHONE') VALUES ('Bisquitfabrikken','Jægersborggade 40','','40 16 04 91');
 INSERT INTO 'CA3DB'.'SHOP' ('NAME','ADDRESS','ZIP','PHONE') VALUES ('tagtomat','','','');
 INSERT INTO 'CA3DB'.'SHOP' ('NAME','ADDRESS','ZIP','PHONE') VALUES ('Temple bar','Nørrebrogade 48','','35 37 44 14');
-INSERT INTO 'CA3DB'.'SHOP' ('NAME','ADDRESS','ZIP','PHONE') VALUES ('TO'SK','Jagtvej 131','','35 85 35 86');
+INSERT INTO 'CA3DB'.'SHOP' ('NAME','ADDRESS','ZIP','PHONE') VALUES ('TO´SK','Jagtvej 131','','35 85 35 86'); 
 INSERT INTO 'CA3DB'.'SHOP' ('NAME','ADDRESS','ZIP','PHONE') VALUES ('Slagter Svendsen','Jagtvej 130','','26 28 06 62');
 INSERT INTO 'CA3DB'.'SHOP' ('NAME','ADDRESS','ZIP','PHONE') VALUES ('Terroristen ','Jægersborggade 52','','');
 INSERT INTO 'CA3DB'.'SHOP' ('NAME','ADDRESS','ZIP','PHONE') VALUES ('Teatergruppen Batida','Rentemestervej 25A','2400','3810 3609');
@@ -97,7 +97,7 @@ INSERT INTO 'CA3DB'.'SHOP' ('NAME','ADDRESS','ZIP','PHONE') VALUES ('FEELGOOD BA
 INSERT INTO 'CA3DB'.'SHOP' ('NAME','ADDRESS','ZIP','PHONE') VALUES ('Nørrebro Bycenter','','','+45 27 90 14 69');
 INSERT INTO 'CA3DB'.'SHOP' ('NAME','ADDRESS','ZIP','PHONE') VALUES ('KBH.HAUT','Ryesgade 1','','');
 INSERT INTO 'CA3DB'.'SHOP' ('NAME','ADDRESS','ZIP','PHONE') VALUES ('Koncertkirken Blågård','','','');
-INSERT INTO 'CA3DB'.'SHOP' ('NAME','ADDRESS','ZIP','PHONE') VALUES ('Bevar's','Ravnsborggade 10B','','+45 5059 0993');
+INSERT INTO 'CA3DB'.'SHOP' ('NAME','ADDRESS','ZIP','PHONE') VALUES ('Bevar´s','Ravnsborggade 10B','','+45 5059 0993');
 INSERT INTO 'CA3DB'.'SHOP' ('NAME','ADDRESS','ZIP','PHONE') VALUES ('Bar Next Door, Alabama Social, Hanzo &  Gran torino','','','+45 31 35 36 32');
 INSERT INTO 'CA3DB'.'SHOP' ('NAME','ADDRESS','ZIP','PHONE') VALUES ('advokat Dan Harild','Wesselsgade 17','','2943 3347');
 INSERT INTO 'CA3DB'.'SHOP' ('NAME','ADDRESS','ZIP','PHONE') VALUES ('NOVA','','',' 4271 3626');
