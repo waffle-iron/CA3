@@ -29,9 +29,9 @@ public class ShopMapper {
     private String website;
     private Category category;
     private String description;
+    private String placeId;
     private CityInfo cityInfo;
     private User user;
-    
     
 
     public ShopMapper(Shop shop) {
@@ -54,6 +54,15 @@ public class ShopMapper {
         website = shop.getWebsite();
         category = shop.getCategory();
         description = shop.getDescription();
+        placeId = shop.getGoogleShopId();
+    }
+
+    public String getPlaceId() {
+        return placeId;
+    }
+
+    public void setPlaceId(String placeId) {
+        this.placeId = placeId;
     }
 
     
