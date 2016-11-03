@@ -50,6 +50,9 @@ angular.module('myApp.filters', [])
 
                 var link = rawLink;
                 link = link.replace(/https?:\/\//, '');
+                if(link.length>17){
+                    link = "visit website"
+                }
                 return link;
             }
 
