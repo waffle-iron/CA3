@@ -62,15 +62,16 @@ public class Shop implements Serializable {
     @ManyToOne
     private OpenClose openingHours;
 
-    public Shop(String name, String email, String phone, Address adress, String description, String website, Category category, Date updated) {
+    public Shop(String name, String email, String phone, String adress, String description, String website, Category category) {
         this.name = name;
         this.email = email;
         this.phone = phone;
-        this.adress = adress;
+        String[] address = adress.split(" ", 2);
+        this.adress = new Address(address[0],address[1]);
         this.description = description;
         this.website = website;
         this.category = category;
-        this.updated = updated;
+        this.updated = new Date();
     }
 
     public Shop() {
