@@ -28,7 +28,7 @@
             <div class="row">{{selectedShop.email}}</div>
             <div class="row">{{selectedShop.openingHours.dayNullOpen | hourFilter}} - {{selectedShop.openingHours.dayNullClose | hourFilter}}</div>
             <div class="row"><a href="{{selectedShop.website | hrefFilter}}">{{selectedShop.website | linkTxtFilter}}</a></div>
-            <div class="row">{{selectedShop.rating}}</div> <!-- {{selectedGoogleShop.result.rating}}-->
+            <div class="row">{{selectedShop.rating}} / 5</div> <!-- {{selectedGoogleShop.result.rating}}-->
         </div>
     </div>
 

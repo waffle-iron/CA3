@@ -32,12 +32,13 @@ angular.module('myApp.filters', [])
         })
         .filter('hourFilter', function () {
             return function (rawHours) {
-
                 var formattedHours = rawHours.toString();
                 if (formattedHours.length<4) {
                     formattedHours = "0" + formattedHours
                 }
-                formattedHours = formattedHours.substr(0,2)+':'+formattedHours.substring(2, formattedHours.length);
+                formattedHours = formattedHours.substr(0,2)
+                        +':'
+                        +formattedHours.substring(2, formattedHours.length);
                 return formattedHours;
             };
         })
