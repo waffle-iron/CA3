@@ -44,9 +44,17 @@ public class ShopMapper {
         
         if (openClose != null) {
             openingHours = new OpenCloseMapper(openClose);
+        }else{
+            openingHours = new OpenCloseMapper(new OpenClose());
         }
         
         website = shop.getWebsite();
+        if(website == null){
+            website="NA";
+        }
+        
+        
+        
         category = shop.getCategory();
         description = shop.getDescription();
         placeId = shop.getGoogleShopId();
