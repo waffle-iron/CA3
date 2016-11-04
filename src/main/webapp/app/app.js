@@ -13,6 +13,7 @@ angular.module('myApp', [
   'myApp.view3',
   'myApp.view4',
   'myApp.view5',
+  'myApp.documentation',
   'myApp.filters',
   'myApp.directives',
   'myApp.factories',

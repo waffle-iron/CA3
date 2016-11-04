@@ -9,14 +9,13 @@ angular.module('myApp.view3', ['ngRoute'])
   });
 }])
 
-.controller('addShopCtrl', ["$window","$rootScope","$location","$http","$scope","$timeout",function($window,$rootScope,$location,$http,$scope,$timeout){
-
+.controller('addShopCtrl', ["$location","$http","$scope","$timeout",function($location,$http,$scope,$timeout){
+ 
  $scope.saveShop = function () {
             $http.post('api/shop',$scope.shop)
                     .success(function (data) {
 //                      $location.path("#view4");
                       $timeout(function(){
-                          
                       $location.path("#/view4");
                       },100);
                     })
