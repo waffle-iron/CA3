@@ -47,7 +47,7 @@ public class ShopRest {
 
     @Context
     private UriInfo context;
-    
+    private String key = "AIzaSyCk7blviPaQ3wPLGzDt7Dndzikj4bNeLI0"; // this is the developer key needed to make the REST call
     private IUserFacade facade;
     static Gson gson = new GsonBuilder().setPrettyPrinting().create();
 
@@ -61,6 +61,7 @@ public class ShopRest {
     /**
      * Retrieves representation of an instance of rest.ShopRest
      * @return an instance of java.lang.String
+     * @throws java.io.IOException
      */
     @GET
     @Produces(MediaType.APPLICATION_JSON)
@@ -69,7 +70,7 @@ public class ShopRest {
         JsonObject jsonObject;
         String result = "{}";
 //        try {
-            jsonObject = ExternalURLRESTCall.readJsonFromUrl("https://maps.googleapis.com/maps/api/place/textsearch/json?query=shops+in+Norrebro&key=AIzaSyCk7blviPaQ3wPLGzDt7Dndzikj4bNeLI0");
+            jsonObject = ExternalURLRESTCall.readJsonFromUrl("https://maps.googleapis.com/maps/api/place/textsearch/json?query=shops+in+Norrebro&key="+key);
             result = jsonObject.toString();
             //return "";
 //        } catch (IOException ex) {
