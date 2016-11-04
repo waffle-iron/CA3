@@ -194,7 +194,7 @@ public class InitialSeedRestIntegrationTest {
      * Test for adding a shop of class ShopRest
      */
     @Test
-    @Ignore
+    @Ignore //This is only ignored as we don't want to add same new shop everytime we run the test
     public void testAddShop(){
         Category c = null;
         Shop newshop = new Shop("Bog & Ide","bogide@mail.dk","35 85 52 77","Nørrebrogade","Book Shop","www.bog-ide.dk","163",c.HAND);
