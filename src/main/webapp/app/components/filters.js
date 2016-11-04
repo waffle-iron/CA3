@@ -27,8 +27,19 @@ angular.module('myApp.filters', [])
 
 
                 return phoneNumber;
-            }
+            };
 
+        })
+        .filter('hourFilter', function () {
+            return function (rawHours) {
+
+                var formattedHours = rawHours.toString();
+                if (formattedHours.length<4) {
+                    formattedHours = "0" + formattedHours
+                }
+                formattedHours = formattedHours.substr(0,2)+':'+formattedHours.substring(2, formattedHours.length);
+                return formattedHours;
+            };
         })
 
         .filter('hrefFilter', function () {
@@ -40,7 +51,7 @@ angular.module('myApp.filters', [])
                     link = 'http://' + link;
                 }
                 return link;
-            }
+            };
 
         })
 
@@ -50,14 +61,14 @@ angular.module('myApp.filters', [])
 
                 var link = rawLink;
                 link = link.replace(/https?:\/\//, '');
-                if(link.length>17){
+                if (link.length > 17) {
                     link = "visit website"
                 }
                 return link;
-            }
+            };
 
         })
-        
+
         .filter('categoryfilter', function () {
             return function (input) {
                 var out;
@@ -127,6 +138,6 @@ angular.module('myApp.filters', [])
                         break;
                 }
                 return out;
-            }
+            };
         });
 
