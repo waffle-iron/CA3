@@ -1,5 +1,3 @@
-INSERT INTO `CA3DB`.`SHOP` (`NAME`,`STREET`,`CityInfo_id`,`PHONE`) VALUES ('Musikproduktion ApS','Sigurdsgade 39','2200','20461842');
-
 INSERT INTO 'CA3DB'.'SHOP' ('NAME','ADDRESS','ZIP','PHONE') VALUES ('Musikproduktion ApS','Sigurdsgade 39','2200','20461842');
 INSERT INTO 'CA3DB'.'SHOP' ('NAME','ADDRESS','ZIP','PHONE') VALUES ('Krabbenhøft +Ingolfsen','Thorsgade 59, 4 TV','2200','32105532');
 INSERT INTO 'CA3DB'.'SHOP' ('NAME','ADDRESS','ZIP','PHONE') VALUES ('Escobar ','Blågårdsgade 2A','2200','30226077');
