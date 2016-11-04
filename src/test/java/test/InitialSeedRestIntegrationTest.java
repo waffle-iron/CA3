@@ -1,13 +1,16 @@
 package test;
 
 import entity.Role;
+import entity.Shop;
 import entity.User;
+import enums.Category;
 import facades.UserFacade;
 import org.junit.BeforeClass;
 import io.restassured.RestAssured;
 import static io.restassured.RestAssured.*;
 import io.restassured.parsing.Parser;
 import java.net.MalformedURLException;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.persistence.EntityManager;
@@ -16,7 +19,11 @@ import javax.servlet.ServletException;
 import org.apache.catalina.LifecycleException;
 import static org.hamcrest.Matchers.*;
 import org.junit.AfterClass;
+import static org.junit.Assert.assertEquals;
+import org.junit.Ignore;
 import org.junit.Test;
+import security.IUserFacade;
+import security.UserFacadeFactory;
 import test.utils.EmbeddedTomcat;
 
 public class InitialSeedRestIntegrationTest {
@@ -24,6 +31,9 @@ public class InitialSeedRestIntegrationTest {
   private static final int SERVER_PORT = 9999; //running instance of tomcat already using 8080
   private static final String APP_CONTEXT = "/seed";
   private static EmbeddedTomcat tomcat;
+  
+    private static EntityManager em;
+    private static IUserFacade facade;
 
   public InitialSeedRestIntegrationTest() {
   }
@@ -58,7 +68,8 @@ public class InitialSeedRestIntegrationTest {
     /*
     Insert test users to DB
     */
-    EntityManager em = Persistence.createEntityManagerFactory("PU_TEST").createEntityManager();
+    em = Persistence.createEntityManagerFactory("PU_TEST").createEntityManager();
+    facade = UserFacadeFactory.getInstance();
     try {
       System.out.println("Creating TEST Users");
       if (em.find(User.class, "user") == null) {
@@ -152,5 +163,46 @@ public class InitialSeedRestIntegrationTest {
             .body("error.message", equalTo("No authorization header provided"));
 
   }
+  
+    /**
+     * Test of getAllShops method, of class ShopRest.
+     */
+    @Test
+    public void testGetJSONShops() {
+        List<Shop> list = facade.getAllShops();
+        int expSize = list.size();
+        Shop[] shops = 
+                given().
+                when().get("/api/shop/all").as(Shop[].class);
+        assertEquals(expSize,shops.length);
 
+    }
+
+    /**
+     * Test of getAllShops method with invalid path, of class ShopRest.
+     */
+    @Test
+    public void testGetJSONShopsInvalidPath() {
+                given().
+                when().get("/api/shops").then()
+                .statusCode(404)
+                .body("error.message", equalTo("The requested resource was not found on our server"));
+
+    }
+    
+    /**
+     * Test for adding a shop of class ShopRest
+     */
+    @Test
+    @Ignore
+    public void testAddShop(){
+        Category c = null;
+        Shop newshop = new Shop("Bog & Ide","bogide@mail.dk","35 85 52 77","Nørrebrogade","Book Shop","www.bog-ide.dk","163",c.HAND);
+        given()
+        .contentType("application/json")
+        .body(newshop)
+        .when().post("/api/shop").then()
+        .statusCode(200);
+    }
+    
 }

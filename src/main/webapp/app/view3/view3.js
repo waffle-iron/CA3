@@ -14,14 +14,13 @@ angular.module('myApp.view3', ['ngRoute'])
  $scope.saveShop = function () {
             $http.post('api/shop',$scope.shop)
                     .success(function (data) {
-                      $location.path("#view4");
+//                      $location.path("#view4");
                       $timeout(function(){
                           
-                      $location.path("#/view1");
+                      $location.path("#/view4");
                       },100);
                     })
                     .error(function (data) {
-//                      delete $window.sessionStorage.id_token;
                             console.log("ERROR"); 
                     });
           };
