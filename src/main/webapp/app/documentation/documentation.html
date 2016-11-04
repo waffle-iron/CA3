@@ -34,36 +34,35 @@
                 <h4><b><i>DESCRIPTION OF THE PROJECT</i></b></h4>
                 <br>
                 <p> 
+
+                    See complete project description <a href="https://docs.google.com/document/d/1y8jHEAaBaQhRFVhidaealQT5lXucBPBmHUOVHuBg5NE/edit"  >  HERE. </a>
                 </p>
                 <h4>Usage of angular filters</h4><br>
                 <img src="app/documentation/images/filters.png" style="width: 50%;"/>
                 <br>
                 <br>
-                <h4>Fetching data from google places AIP</h4>
+                <h4>Fetching data from google places API</h4>
                 <div class="cointainer">
-                    <p>Since we are not able to make google AIP requests directly from the client we have decided 
+                    <p>Since we are not able to make google API requests directly from the client we have decided 
                         to make the request from the client to our server, from over server to google, then send the result back
                         to the client. It is not the most optimal way of doing it, because we load more traffic onto our server
                         and there is even more steps the information have to travel through to get to the end user, which also
                         makes the application seeming slow.</p>
                 </div>
-
+                <img src='app/documentation/images/googleAPI.PNG' style="width: 75%;"/>
                 <br>
-                <h4><b><i>PROJECT STRUCTURE</i></b></h4>
                 <br>
 
-                <p><i>ER DIAGRAM:</i>
+                <h4>STRUCTURE STRATEGY:</h4>
+                <p>
 
                     <!--write in here-->
-                </p><br>
-
-
-
+                </p>
+                <br>
                 <br>
                 <img src='app/documentation/images/structure.jpg' style="width: 25%;">
                 <br>
-                <p><i>ER DIAGRAM:</i></p>
-                <!--insert ER here-->
+                <h4>ER DIAGRAM:</h4>
                 <img src="app/documentation/images/database ER diagram_1.PNG" style="width: 50%;"/>
                 <br>
             </div>
@@ -82,16 +81,21 @@
                 <br>
                 <div>
                     <div>
-                        <h4>jUnit testing</h4><a href="https://github.com/rpuls/CA3/blob/master/src/test/java/test/FacadeTest.java">Go to the code</a>
+                        <h4>JUnit testing</h4>
+                        <a href="https://github.com/rpuls/CA3/blob/master/src/test/java/test/FacadeTest.java">Go to the code</a>
                     </div>
-
                     <img src='app/documentation/images/unitTest.jpg' style="length: 50%;">
                 </div>
 
                 <h4><b><i>REST-ASSURED TEST</i></b></h4>
                 <br>
                 <p> 
-                   
+                    We have implemented REST_Assured framework to test the rest services in our project.
+                    It was already setup from the seed wherein it initially tests the authentication for the users. 
+                    We have added some test cases wherein it will validate the response that we get once we have created a new shop and
+                    get all the shops in a given path from the use of ShopRest. From there, we are expecting 
+                    a status code of 200. We also added some tests for the error handling by checking the status code
+                    whenever an invalid path was given wherein we get an error code of 404 which means the requested resource was not found. 
                 </p>
                 <br>
 
