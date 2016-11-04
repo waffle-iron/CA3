@@ -10,6 +10,7 @@ import io.restassured.RestAssured;
 import static io.restassured.RestAssured.*;
 import io.restassured.parsing.Parser;
 import java.net.MalformedURLException;
+import java.util.Date;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -197,7 +198,7 @@ public class InitialSeedRestIntegrationTest {
     @Ignore
     public void testAddShop(){
         Category c = null;
-        Shop newshop = new Shop("Bog & Ide","bogide@mail.dk","35 85 52 77","Nørrebrogade","Book Shop","www.bog-ide.dk","163",c.HAND);
+        Shop newshop = new Shop("Bog & Ide", "bogide@mail.dk", "35 85 52 77", "Book Shop", "www.bog-ide.dk", c.HAND, "PlaceId", new Date(), "Nørrebrogade", "163");
         given()
         .contentType("application/json")
         .body(newshop)
