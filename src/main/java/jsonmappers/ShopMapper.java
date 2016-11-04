@@ -8,11 +8,9 @@ package jsonmappers;
 //import entity.Address;
 import entity.CityInfo;
 import entity.OpenClose;
-import entity.Picture;
 import entity.Shop;
 import entity.User;
 import enums.Category;
-import java.util.List;
 
 /**
  *
@@ -43,11 +41,11 @@ public class ShopMapper {
         user = shop.getUser();
 
         OpenClose openClose = shop.getOpeningHours();
+        
         if (openClose != null) {
             openingHours = new OpenCloseMapper(openClose);
-        } else {
-            openingHours = new OpenCloseMapper(new OpenClose());
         }
+        
         website = shop.getWebsite();
         category = shop.getCategory();
         description = shop.getDescription();

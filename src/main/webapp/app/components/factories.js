@@ -25,15 +25,21 @@ angular.module('myApp.factories', []).
             };
         })
         .factory('googleFactory', function ($http, selectedShopFac) {
-            var shop = selectedShopFac.getSelectedShop();
-            console.log(shop);
-            var placeId = "ChIJw-01YqpTUkYR-MXn2-P9fLg";//shop.placeId;
+
+            //console.log(shop);
             var gObject = {};
             gObject.getOpeningHours = function () {
-                return $http.get('https://maps.googleapis.com/maps/api/place/details/json?placeid='+placeId+'&key=AIzaSyCk7blviPaQ3wPLGzDt7Dndzikj4bNeLI0');
+                var shop = selectedShopFac.getSelectedShop();
+                var placeId = shop.placeId;
+                console.log(placeId);
+                return $http({
+                    url: 'api/shop/get/rating/' + placeId,
+                    skipAuthorization: true,
+                    method: 'GET'
+                });
             };
             return gObject;
-        })
-        
-     
+        });
+
+
 

@@ -30,6 +30,7 @@ import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
+import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import jsonmappers.ShopMapper;
@@ -60,63 +61,54 @@ public class ShopRest {
 
     /**
      * Retrieves representation of an instance of rest.ShopRest
+     *
+     * @param placeId
      * @return an instance of java.lang.String
      * @throws java.io.IOException
      */
     @GET
     @Produces(MediaType.APPLICATION_JSON)
-    @Path("update/all")
-    public String getGoogleData() throws IOException {
+    @Path("get/rating/{placeId}")
+    public String getGoogleData(@PathParam("placeId") String placeId) throws IOException {
         JsonObject jsonObject;
-        String result = "{}";
-//        try {
-            jsonObject = ExternalURLRESTCall.readJsonFromUrl("https://maps.googleapis.com/maps/api/place/textsearch/json?query=shops+in+Norrebro&key="+key);
-            result = jsonObject.toString();
-            //return "";
-//        } catch (IOException ex) {
-//            System.err.println(ex.getStackTrace());
-//        } catch (JsonException ex) {
-//            System.err.println(ex.getStackTrace());
-//        } catch (Exception ex){
-//            System.err.println(ex.getStackTrace());
-//        }
-        return result;
+        JsonObject rating;
+        String url = "https://maps.googleapis.com/maps/api/place/details/json?placeid=" + placeId + "&key=AIzaSyCk7blviPaQ3wPLGzDt7Dndzikj4bNeLI0";
+        jsonObject = ExternalURLRESTCall.readJsonFromUrl(url);
+        return jsonObject.get("result").getAsJsonObject().get("rating").toString();
     }
-    
+
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     @Path("all")
     public String getAllShops() {
-        
-        
-        
+
         List<entity.Shop> shops = facade.getAllShops();
         List<jsonmappers.ShopMapper> shopmappers = new ArrayList<>();
-        
-        for(entity.Shop shop : shops) {
+
+        for (entity.Shop shop : shops) {
             shopmappers.add(new ShopMapper(shop));
         }
-        
+
         return gson.toJson(shopmappers);
     }
 
     /**
      * PUT method for updating or creating an instance of ShopRest
+     *
      * @param content representation for the resource
      */
     @PUT
     @Consumes(MediaType.APPLICATION_XML)
     public void putXml(String content) {
     }
-    
-    
+
     @POST
     @Consumes({MediaType.APPLICATION_JSON})
     @Produces({MediaType.APPLICATION_JSON})
-    public String addShop(String content){      
+    public String addShop(String content) {
         Shop s = gson.fromJson(content, Shop.class);
         Shop newShop = facade.create(s);
         return gson.toJson(newShop);
     }
-    
+
 }
