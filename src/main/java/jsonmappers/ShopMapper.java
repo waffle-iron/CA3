@@ -19,7 +19,7 @@ import java.util.List;
  * @author TimmosQuadros
  */
 public class ShopMapper {
-    
+
     private String name;
     private String street;
     private String housenumber;
@@ -32,23 +32,20 @@ public class ShopMapper {
     private String placeId;
     private CityInfo cityInfo;
     private User user;
-    
 
     public ShopMapper(Shop shop) {
         name = shop.getName();
-       street = shop.getStreet();
-       housenumber = shop.getHousenumber();
+        street = shop.getStreet();
+        housenumber = shop.getHousenumber();
         phone = shop.getPhone();
         email = shop.getEmail();
         cityInfo = shop.getCityInfo();
         user = shop.getUser();
-        
-        
-        
+
         OpenClose openClose = shop.getOpeningHours();
-        if(openClose!=null){
+        if (openClose != null) {
             openingHours = new OpenCloseMapper(openClose);
-        }else{
+        } else {
             openingHours = new OpenCloseMapper(new OpenClose());
         }
         website = shop.getWebsite();
@@ -66,9 +63,6 @@ public class ShopMapper {
         this.placeId = placeId;
 
     }
-
-   
-    
 
     public OpenCloseMapper getOpeningHours() {
         return openingHours;
@@ -150,7 +144,6 @@ public class ShopMapper {
         this.cityInfo = cityInfo;
     }
 
-   
     public User getUser() {
         return user;
     }
@@ -159,10 +152,4 @@ public class ShopMapper {
         this.user = user;
     }
 
-   
-    
-    
-    
-    
-    
 }
