@@ -71,11 +71,10 @@ public class ShopRest {
     @Path("get/rating/{placeId}")
     public String getGoogleData(@PathParam("placeId") String placeId) throws IOException {
         JsonObject jsonObject;
-        String rating;
+        JsonObject rating;
         String url = "https://maps.googleapis.com/maps/api/place/details/json?placeid=" + placeId + "&key=AIzaSyCk7blviPaQ3wPLGzDt7Dndzikj4bNeLI0";
         jsonObject = ExternalURLRESTCall.readJsonFromUrl(url);
-        rating = jsonObject.get("result").getAsJsonObject().get("rating").toString();
-        return "{'rating': "+rating+"}";
+        return jsonObject.get("result").getAsJsonObject().get("rating").toString();
     }
 
     @GET
