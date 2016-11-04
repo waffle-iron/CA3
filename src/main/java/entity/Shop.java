@@ -73,7 +73,7 @@ public class Shop implements Serializable {
    @JoinColumn(name = "CITYINFO", referencedColumnName = "ZIP")
     private CityInfo cityInfo;
 
-    public Shop(String name, String email, String phone, String street, String description, String website, Category category) {
+    public Shop(String name, String email, String phone, String street, String description, String website, String houseNumber, Category category) {
         this.name = name;
         this.email = email;
         this.phone = phone;
@@ -81,6 +81,7 @@ public class Shop implements Serializable {
         this.description = description;
         this.website = website;
         this.category = category;
+        this.houseNumber = houseNumber;
         this.updated = new Date();
     }
 

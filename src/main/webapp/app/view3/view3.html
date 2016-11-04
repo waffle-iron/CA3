@@ -2,11 +2,11 @@
 <div class="col-md-3"  style="border: thin lightblue solid; border-radius: 5px;padding: 1em;">
     <form class="form-horizontal" ng-submit="saveShop()">
         <fieldset >
-          <legend>Shop ID: {{shop.id}}</legend>
+          <legend>SHOP</legend>
           <div class="form-group">
             <label for="category" class="control-label col-xs-3" ><span class="label label-info">CATEGORY:</span></label>
             <div class="col-xs-9">
-                <select type="text" ng-model="shop.category" class="form-control" id="category" placeholder="Category">
+                <select type="text" ng-model="shop.category" class="form-control" id="category" placeholder="Category" required>
                     <option value="CUCA">CUCA</option>
                     <option value="FOOD">FOOD</option>
                     <option value="TAWA">TAWA</option>
@@ -34,37 +34,38 @@
           <div class="form-group">
             <label for="Name" class="control-label col-xs-3"><span class="label label-info">NAME:</span></label>
             <div class="col-xs-9">
-              <input type="text" ng-model="shop.name" class="form-control" id="name" placeholder="Name">
+              <input type="text" ng-model="shop.name" class="form-control" id="name" placeholder="Name" required>
             </div>
           </div>
           <div class="form-group">
             <label for="Description" class="control-label col-xs-3"><span class="label label-info">DESCRIPTION:</span></label>
             <div class="col-xs-9">
-              <input type="text" ng-model="shop.description" class="form-control" id="description" placeholder="Description">
+              <input type="text" ng-model="shop.description" class="form-control" id="description" placeholder="Description" required>
             </div>
           </div>
           <div class="form-group">
             <label for="Website" class="control-label col-xs-3"><span class="label label-info">WEBSITE:</span></label>
             <div class="col-xs-9">
-              <input type="text" ng-model="shop.website" class="form-control" id="website" placeholder="Website">
+              <input type="text" ng-model="shop.website" class="form-control" id="website" placeholder="Website" required>
             </div>
           </div>
           <div class="form-group">
             <label for="Email" class="control-label col-xs-3"><span class="label label-info">EMAIL:</span></label>
             <div class="col-xs-9">
-              <input type="text" ng-model="shop.email" class="form-control" id="email" placeholder="Email">
+              <input type="text" ng-model="shop.email" class="form-control" id="email" placeholder="Email" required>
             </div>
           </div>
           <div class="form-group">
             <label for="Phone" class="control-label col-xs-3"><span class="label label-info">PHONE:</span></label>
             <div class="col-xs-9">
-              <input type="text" ng-model="shop.phone" class="form-control" id="phone" placeholder="Phone">
+              <input type="text" ng-model="shop.phone" class="form-control" id="phone" placeholder="Phone" required>
             </div>
           </div>
           <div class="form-group">
             <label for="Address" class="control-label col-xs-3"><span class="label label-info">ADDRESS:</span></label>
             <div class="col-xs-9">
-              <input type="text" ng-model="shop.adressAsString" class="form-control" id="address" placeholder="Street Address - eks. Sofievej 3">
+              <input type="text" ng-model="shop.street" class="form-control" id="street" placeholder="Street Address" required>
+              <input type="text" ng-model="shop.houseNumber" class="form-control" id="houseNumber" placeholder="House Number" required>
             </div>
           </div>
         </fieldset>
