@@ -72,7 +72,8 @@ public class ShopRest {
     public String getGoogleData(@PathParam("placeId") String placeId) throws IOException {
         JsonObject jsonObject;
         JsonObject rating;
-        String url = "https://maps.googleapis.com/maps/api/place/details/json?placeid=" + placeId + "&key=AIzaSyCk7blviPaQ3wPLGzDt7Dndzikj4bNeLI0";
+        String url = "https://maps.googleapis.com/maps/api/place/details/json?placeid=" 
+                + placeId + "&key=AIzaSyCk7blviPaQ3wPLGzDt7Dndzikj4bNeLI0";
         jsonObject = ExternalURLRESTCall.readJsonFromUrl(url);
         return jsonObject.get("result").getAsJsonObject().get("rating").toString();
     }
