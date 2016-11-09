@@ -9,6 +9,7 @@ package jsonmappers;
 import entity.CityInfo;
 import entity.OpenClose;
 import entity.Shop;
+import entity.ShopMapPosition;
 import entity.User;
 import enums.Category;
 
@@ -30,6 +31,7 @@ public class ShopMapper {
     private String placeId;
     private CityInfo cityInfo;
     private User user;
+    private ShopMapPositionMapper position;
 
     public ShopMapper(Shop shop) {
         name = shop.getName();
@@ -46,6 +48,14 @@ public class ShopMapper {
             openingHours = new OpenCloseMapper(openClose);
         }else{
             openingHours = new OpenCloseMapper(new OpenClose());
+        }
+        
+        ShopMapPosition pos = shop.getPos();
+        
+        if (openClose != null) {
+            position = new ShopMapPositionMapper(pos);
+        }else{
+            position = new ShopMapPositionMapper(new ShopMapPosition());
         }
         
         website = shop.getWebsite();

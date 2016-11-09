@@ -7,7 +7,6 @@ angular.module('myApp', [
   'angular-jwt',
   'ui.bootstrap',
   'myApp.security',
-  'myApp.map',
   'myApp.view1',
   'myApp.view2',
   'myApp.view3',

@@ -28,13 +28,12 @@ angular.module('myApp.view1', ['ngRoute'])
                 googleFactory.getOpeningHours().success(function (data) {
                     $scope.selectedShop.rating = data;
                 });
-                
+
                 $uibModal.open({
                     templateUrl: 'app/view1/shop/shop.html',
                     scope: $scope
                 });
             };
-
         })
         .service('ShopService', function ($http) {
             var shop = {};
@@ -43,4 +42,22 @@ angular.module('myApp.view1', ['ngRoute'])
             };
             return shop;
 
+        })
+        .directive('mapDir', function ($window) {
+            return {
+                restrict: 'A',
+                link: function (scope, element) {
+
+                    function onResize() {
+                        var mapDiv = element;
+                        mapDiv.height(mapDiv.width() * 1.45);
+                    }
+
+                    onResize();
+                    angular.element($window).on('resize', onResize);
+
+                }
+            };
+
         });
+
