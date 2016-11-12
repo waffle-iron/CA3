@@ -28,7 +28,7 @@
             <div class="row"><span class="label label-info">EMAIL:</span>{{selectedShop.email}}</div>
             <div class="row"><span class="label label-info">OPENING HOURS:</span>{{selectedShop.openingHours.dayNullOpen | hourFilter}} - {{selectedShop.openingHours.dayNullClose | hourFilter}}</div>
             <div class="row"><span class="label label-info">WEBSITE:</span> <a href="{{selectedShop.website | hrefFilter}}">{{selectedShop.website | linkTxtFilter}}</a></div>
-            <div class="row"><span class="label label-info">RATING:</span>{{selectedShop.rating}} / 5</div> <!-- {{selectedGoogleShop.result.rating}}-->
+            <div class="row"><span class="label label-info">RATING:</span>{{selectedShop.rating}}</div> <!-- {{selectedGoogleShop.result.rating}}-->
         </div>
     </div>
 

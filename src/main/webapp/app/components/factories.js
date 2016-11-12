@@ -31,12 +31,12 @@ angular.module('myApp.factories', []).
             gObject.getOpeningHours = function () {
                 var shop = selectedShopFac.getSelectedShop();
                 var placeId = shop.placeId;
-                console.log(placeId);
-                return $http({
-                    url: 'api/shop/get/rating/' + placeId,
-                    skipAuthorization: true,
-                    method: 'GET'
-                });
+                    console.log(placeId);
+                    return $http({
+                        url: 'api/shop/get/rating/' + placeId,
+                        skipAuthorization: true,
+                        method: 'GET'
+                    });
             };
             return gObject;
         });

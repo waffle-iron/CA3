@@ -10,7 +10,7 @@ angular.module('myApp.view1', ['ngRoute'])
                 });
             }])
 
-        .controller('ShopCtrl', function ($scope, $uibModal, ShopService, selectedShopFac, googleFactory) {
+       .controller('ShopCtrl', function ($scope, $uibModal, ShopService, selectedShopFac, googleFactory) {
             $scope.shops = [];
             $scope.selectedShop = selectedShopFac.setSelectedShop({});
             ShopService.getShops().then(
@@ -25,9 +25,13 @@ angular.module('myApp.view1', ['ngRoute'])
             $scope.showDialog = function (shop) {
                 $scope.selectedShop = selectedShopFac.setSelectedShop(shop);
 //                $scope.selectedShop.rating = googleFactory.getOpeningHours();
-                googleFactory.getOpeningHours().success(function (data) {
-                    $scope.selectedShop.rating = data;
-                });
+                if(!angular.isUndefined($scope.selectedShop.placeId)){
+                    googleFactory.getOpeningHours().success(function (data) {
+                        $scope.selectedShop.rating = data + " \/ 5";
+                    });
+                } else{
+                    $scope.selectedShop.rating = "no ratings";
+                }
 
                 $uibModal.open({
                     templateUrl: 'app/view1/shop/shop.html',
