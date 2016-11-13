@@ -48,14 +48,9 @@ public class Shop implements Serializable {
 
     private String googleShopId;
 
-    @OneToOne
-    private ShopMapPosition pos;
 
     @Temporal(javax.persistence.TemporalType.DATE)
     private Date updated;
-
-    @ManyToOne
-    private OpenClose openingHours;
 
     @OneToMany(mappedBy = "shop")
     private List<Picture> pictures;
@@ -67,23 +62,69 @@ public class Shop implements Serializable {
     @Column(name = "HOUSENUMBER")
     private String houseNumber;
 
-
     @ManyToOne
-   // @Column(name = "CITYINFO")
-   @JoinColumn(name = "CITYINFO", referencedColumnName = "ZIP")
+    // @Column(name = "CITYINFO")
+    @JoinColumn(name = "CITYINFO", referencedColumnName = "ZIP")
     private CityInfo cityInfo;
 
-    public Shop(String name, String email, String phone, String description, String website, Category category, String googleShopId, Date updated, String street, String houseNumber) {
+    //open/close hours
+    private int dayNullOpen;
+    private int dayNullClose;
+    private int dayOneOpen;
+    private int dayOneClose;
+    private int dayTwoOpen;
+    private int dayTwoClose;
+    private int dayThreeOpen;
+    private int dayThreeClose;
+    private int dayFourOpen;
+    private int dayFourClose;
+    private int dayFiveOpen;
+    private int dayFiveClose;
+    private int daySixOpen;
+    private int daySixClose;
+
+    //mapposition
+    private double x;
+    private double y;
+    private double angle;
+
+    public Shop(String name, String email, String phone, String description, String website,
+            Category category, Date updated, String street, String houseNumber,
+            int dayNullOpen, int dayNullClose, int dayOneOpen, int dayOneClose, int dayTwoOpen, int dayTwoClose,
+            int dayThreeOpen, int dayThreeClose, int dayFourOpen, int dayFourClose, int dayFiveOpen,
+            int dayFiveClose, int daySixOpen, int daySixClose, String googleShopId, double x, double y, double angle) {
+        this(name, email, phone, description, website, category, street, houseNumber, updated);
+        this.dayNullOpen = dayNullOpen;
+        this.dayNullClose = dayNullClose;
+        this.dayOneOpen = dayOneOpen;
+        this.dayOneClose = dayOneClose;
+        this.dayTwoOpen = dayTwoOpen;
+        this.dayTwoClose = dayTwoClose;
+        this.dayThreeOpen = dayThreeOpen;
+        this.dayThreeClose = dayThreeClose;
+        this.dayFourOpen = dayFourOpen;
+        this.dayFourClose = dayFourClose;
+        this.dayFiveOpen = dayFiveOpen;
+        this.dayFiveClose = dayFiveClose;
+        this.daySixOpen = daySixOpen;
+        this.daySixClose = daySixClose;
+        this.googleShopId = googleShopId;
+        this.x = x;
+        this.y = y;
+        this.angle = angle;
+    }
+
+    public Shop(String name, String email, String phone, String description, String website,
+            Category category, String street, String houseNumber, Date updated) {
         this.name = name;
         this.email = email;
         this.phone = phone;
         this.description = description;
         this.website = website;
         this.category = category;
-        this.googleShopId = googleShopId;
-        this.updated = updated;
         this.street = street;
         this.houseNumber = houseNumber;
+        this.updated = updated;
     }
 
     public Shop() {
@@ -121,13 +162,6 @@ public class Shop implements Serializable {
         this.phone = phone;
     }
 
-//    public Address getAdress() {
-//        return adress;
-//    }
-//
-//    public void setAdress(Address adress) {
-//        this.adress = adress;
-//    }
     public String getDescription() {
         return description;
     }
@@ -160,28 +194,12 @@ public class Shop implements Serializable {
         this.googleShopId = googleShopId;
     }
 
-    public ShopMapPosition getPos() {
-        return pos;
-    }
-
-    public void setPos(ShopMapPosition pos) {
-        this.pos = pos;
-    }
-
     public Date getUpdated() {
         return updated;
     }
 
     public void setUpdated(Date updated) {
         this.updated = updated;
-    }
-
-    public OpenClose getOpeningHours() {
-        return openingHours;
-    }
-
-    public void setOpeningHours(OpenClose openingHours) {
-        this.openingHours = openingHours;
     }
 
     public String getStreet() {
@@ -214,6 +232,150 @@ public class Shop implements Serializable {
 
     public void setCityInfo(CityInfo cityInfo) {
         this.cityInfo = cityInfo;
+    }
+
+    public String getHouseNumber() {
+        return houseNumber;
+    }
+
+    public void setHouseNumber(String houseNumber) {
+        this.houseNumber = houseNumber;
+    }
+
+    public int getDayNullOpen() {
+        return dayNullOpen;
+    }
+
+    public void setDayNullOpen(int dayNullOpen) {
+        this.dayNullOpen = dayNullOpen;
+    }
+
+    public int getDayNullClose() {
+        return dayNullClose;
+    }
+
+    public void setDayNullClose(int dayNullClose) {
+        this.dayNullClose = dayNullClose;
+    }
+
+    public int getDayOneOpen() {
+        return dayOneOpen;
+    }
+
+    public void setDayOneOpen(int dayOneOpen) {
+        this.dayOneOpen = dayOneOpen;
+    }
+
+    public int getDayOneClose() {
+        return dayOneClose;
+    }
+
+    public void setDayOneClose(int dayOneClose) {
+        this.dayOneClose = dayOneClose;
+    }
+
+    public int getDayTwoOpen() {
+        return dayTwoOpen;
+    }
+
+    public void setDayTwoOpen(int dayTwoOpen) {
+        this.dayTwoOpen = dayTwoOpen;
+    }
+
+    public int getDayTwoClose() {
+        return dayTwoClose;
+    }
+
+    public void setDayTwoClose(int dayTwoClose) {
+        this.dayTwoClose = dayTwoClose;
+    }
+
+    public int getDayThreeOpen() {
+        return dayThreeOpen;
+    }
+
+    public void setDayThreeOpen(int dayThreeOpen) {
+        this.dayThreeOpen = dayThreeOpen;
+    }
+
+    public int getDayThreeClose() {
+        return dayThreeClose;
+    }
+
+    public void setDayThreeClose(int dayThreeClose) {
+        this.dayThreeClose = dayThreeClose;
+    }
+
+    public int getDayFourOpen() {
+        return dayFourOpen;
+    }
+
+    public void setDayFourOpen(int dayFourOpen) {
+        this.dayFourOpen = dayFourOpen;
+    }
+
+    public int getDayFourClose() {
+        return dayFourClose;
+    }
+
+    public void setDayFourClose(int dayFourClose) {
+        this.dayFourClose = dayFourClose;
+    }
+
+    public int getDayFiveOpen() {
+        return dayFiveOpen;
+    }
+
+    public void setDayFiveOpen(int dayFiveOpen) {
+        this.dayFiveOpen = dayFiveOpen;
+    }
+
+    public int getDayFiveClose() {
+        return dayFiveClose;
+    }
+
+    public void setDayFiveClose(int dayFiveClose) {
+        this.dayFiveClose = dayFiveClose;
+    }
+
+    public int getDaySixOpen() {
+        return daySixOpen;
+    }
+
+    public void setDaySixOpen(int daySixOpen) {
+        this.daySixOpen = daySixOpen;
+    }
+
+    public int getDaySixClose() {
+        return daySixClose;
+    }
+
+    public void setDaySixClose(int daySixClose) {
+        this.daySixClose = daySixClose;
+    }
+
+    public double getX() {
+        return x;
+    }
+
+    public void setX(double x) {
+        this.x = x;
+    }
+
+    public double getY() {
+        return y;
+    }
+
+    public void setY(double y) {
+        this.y = y;
+    }
+
+    public double getAngle() {
+        return angle;
+    }
+
+    public void setAngle(double angle) {
+        this.angle = angle;
     }
 
 }

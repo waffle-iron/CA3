@@ -198,7 +198,7 @@ public class InitialSeedRestIntegrationTest {
 //    @Ignore //This is only ignored as we don't want to add same new shop everytime we run the test
     public void testAddShop(){
         Category c = null;
-        Shop newshop = new Shop("Bog & Ide", "bogide@mail.dk", "35 85 52 77", "Book Shop", "www.bog-ide.dk", c.HAND, "PlaceId", new Date(), "Nørrebrogade", "163");
+        Shop newshop = new Shop("Bog & Ide", "bogide@mail.dk", "35 85 52 77", "Book Shop", "www.bog-ide.dk", c.HAND, "Nørrebrogade", "163", new Date());
         given()
         .contentType("application/json")
         .body(newshop)

@@ -123,7 +123,7 @@ angular.module('myApp.filters', [])
                         out = "CONVENIENCE";
                         break;
                     case "HAND":
-                        out = "HANSMADE";
+                        out = "HANDMADE";
                         break;
                     case "SHFA":
                         out = "SHOP & FASHION";

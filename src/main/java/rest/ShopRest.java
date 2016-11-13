@@ -106,10 +106,20 @@ public class ShopRest {
     @POST
     @Consumes({MediaType.APPLICATION_JSON})
     @Produces({MediaType.APPLICATION_JSON})
+    @Path("add")
     public String addShop(String content) {
         Shop s = gson.fromJson(content, Shop.class);
         Shop newShop = facade.create(s);
         return gson.toJson(newShop);
+    }
+    
+    @POST
+    @Consumes({MediaType.APPLICATION_JSON})
+    @Produces({MediaType.APPLICATION_JSON})
+    @Path("edit")
+    public void editShop(String content) throws Exception {
+        Shop s = gson.fromJson(content, Shop.class);
+        facade.update(s);
     }
 
 }

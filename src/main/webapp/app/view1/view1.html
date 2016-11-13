@@ -1,5 +1,3 @@
-
-
 <style>
     #mapDiv {
         background-image: url("app/view1/images/clean-map.png");
@@ -22,24 +20,9 @@
 </head>
 <body>
 
-
-
     <div id="mapDiv" map-dir="">
         <div  ng-repeat="shop in shops">
-            <span ng-click="showDialog(shop)" class="shop" style="left: {{shop.position.x}}%; top: {{shop.position.y}}%; transform: rotate({{shop.position.angle}}deg);">{{shop.name}}</span>
+            <span ng-click="showDialog(shop)" class="shop" style="left: {{shop.x}}%; top: {{shop.y}}%; transform: rotate({{shop.angle}}deg);">{{shop.name}}</span>
         </div>
     </div>
-
-
-    <!--
-    <div class="container"  >
-    
-    
-        <div  ng-repeat="shop in shops">
-            <div class="col-xs-3">
-                <span style=" posX: {{getX}}; posY: {{getY}}; angle:{{getAngle}}" ng-click="showDialog(shop)">{{shop.name}}</span>
-            </div>
-        </div>
-    
-    </div>-->
 

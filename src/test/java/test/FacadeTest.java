@@ -66,7 +66,7 @@ public class FacadeTest {
   @Test
     public void createShopTest() {
         
-        Shop s = new Shop("ToysRUS", "email@em.dk", "12345678", "Toy store", "www.trs.dk", Category.PAPE, "googleShopId", null, "street", "houseNumber");
+        Shop s = new Shop("ToysRUS", "email@em.dk", "12345678", "Toy store", "www.trs.dk", Category.PAPE, "street", "houseNumber", new Date());
         Shop found = facade.create(s);
         assertEquals(found.getName(),"ToysRUS");
     }

@@ -7,9 +7,7 @@ package jsonmappers;
 
 //import entity.Address;
 import entity.CityInfo;
-import entity.OpenClose;
 import entity.Shop;
-import entity.ShopMapPosition;
 import entity.User;
 import enums.Category;
 
@@ -19,21 +17,40 @@ import enums.Category;
  */
 public class ShopMapper {
 
+    private int id;
     private String name;
     private String street;
     private String housenumber;
     private String phone;
     private String email;
-    private OpenCloseMapper openingHours;
     private String website;
     private Category category;
     private String description;
     private String placeId;
     private CityInfo cityInfo;
     private User user;
-    private ShopMapPositionMapper position;
+    //open/close hours
+    private int dayNullOpen;
+    private int dayNullClose;
+    private int dayOneOpen;
+    private int dayOneClose;
+    private int dayTwoOpen;
+    private int dayTwoClose;
+    private int dayThreeOpen;
+    private int dayThreeClose;
+    private int dayFourOpen;
+    private int dayFourClose;
+    private int dayFiveOpen;
+    private int dayFiveClose;
+    private int daySixOpen;
+    private int daySixClose;
+    //mapposition
+    private double x;
+    private double y;
+    private double angle;
 
     public ShopMapper(Shop shop) {
+        id = shop.getId();
         name = shop.getName();
         street = shop.getStreet();
         housenumber = shop.getHousenumber();
@@ -41,33 +58,30 @@ public class ShopMapper {
         email = shop.getEmail();
         cityInfo = shop.getCityInfo();
         user = shop.getUser();
-
-        OpenClose openClose = shop.getOpeningHours();
-        
-        if (openClose != null) {
-            openingHours = new OpenCloseMapper(openClose);
-        }else{
-            openingHours = new OpenCloseMapper(new OpenClose());
-        }
-        
-        ShopMapPosition pos = shop.getPos();
-        
-        if (openClose != null) {
-            position = new ShopMapPositionMapper(pos);
-        }else{
-            position = new ShopMapPositionMapper(new ShopMapPosition());
-        }
-        
         website = shop.getWebsite();
         if(website == null){
             website="NA";
-        }
-        
-        
-        
+        }    
         category = shop.getCategory();
         description = shop.getDescription();
         placeId = shop.getGoogleShopId();
+        dayNullOpen = shop.getDayNullOpen();
+        dayNullClose = shop.getDayNullClose();
+        dayOneOpen = shop.getDayOneOpen();
+        dayOneClose = shop.getDayOneClose();
+        dayTwoOpen = shop.getDayTwoOpen();
+        dayTwoClose = shop.getDayTwoClose();
+        dayThreeOpen = shop.getDayThreeOpen();
+        dayThreeClose = shop.getDayThreeClose();
+        dayFourOpen = shop.getDayFourOpen();
+        dayFourClose = shop.getDayFourClose();
+        dayFiveOpen = shop.getDayFiveOpen();
+        dayFiveClose = shop.getDayFiveClose();
+        daySixOpen = shop.getDaySixOpen();
+        daySixClose = shop.getDaySixClose();
+        x = shop.getX();
+        y = shop.getY();
+        angle = shop.getAngle();
 
     }
 
@@ -78,14 +92,6 @@ public class ShopMapper {
     public void setPlaceId(String placeId) {
         this.placeId = placeId;
 
-    }
-
-    public OpenCloseMapper getOpeningHours() {
-        return openingHours;
-    }
-
-    public void setOpeningHours(OpenCloseMapper openingHours) {
-        this.openingHours = openingHours;
     }
 
     public String getName() {
@@ -166,6 +172,142 @@ public class ShopMapper {
 
     public void setUser(User user) {
         this.user = user;
+    }
+
+    public int getDayNullOpen() {
+        return dayNullOpen;
+    }
+
+    public void setDayNullOpen(int dayNullOpen) {
+        this.dayNullOpen = dayNullOpen;
+    }
+
+    public int getDayNullClose() {
+        return dayNullClose;
+    }
+
+    public void setDayNullClose(int dayNullClose) {
+        this.dayNullClose = dayNullClose;
+    }
+
+    public int getDayOneOpen() {
+        return dayOneOpen;
+    }
+
+    public void setDayOneOpen(int dayOneOpen) {
+        this.dayOneOpen = dayOneOpen;
+    }
+
+    public int getDayOneClose() {
+        return dayOneClose;
+    }
+
+    public void setDayOneClose(int dayOneClose) {
+        this.dayOneClose = dayOneClose;
+    }
+
+    public int getDayTwoOpen() {
+        return dayTwoOpen;
+    }
+
+    public void setDayTwoOpen(int dayTwoOpen) {
+        this.dayTwoOpen = dayTwoOpen;
+    }
+
+    public int getDayTwoClose() {
+        return dayTwoClose;
+    }
+
+    public void setDayTwoClose(int dayTwoClose) {
+        this.dayTwoClose = dayTwoClose;
+    }
+
+    public int getDayThreeOpen() {
+        return dayThreeOpen;
+    }
+
+    public void setDayThreeOpen(int dayThreeOpen) {
+        this.dayThreeOpen = dayThreeOpen;
+    }
+
+    public int getDayThreeClose() {
+        return dayThreeClose;
+    }
+
+    public void setDayThreeClose(int dayThreeClose) {
+        this.dayThreeClose = dayThreeClose;
+    }
+
+    public int getDayFourOpen() {
+        return dayFourOpen;
+    }
+
+    public void setDayFourOpen(int dayFourOpen) {
+        this.dayFourOpen = dayFourOpen;
+    }
+
+    public int getDayFourClose() {
+        return dayFourClose;
+    }
+
+    public void setDayFourClose(int dayFourClose) {
+        this.dayFourClose = dayFourClose;
+    }
+
+    public int getDayFiveOpen() {
+        return dayFiveOpen;
+    }
+
+    public void setDayFiveOpen(int dayFiveOpen) {
+        this.dayFiveOpen = dayFiveOpen;
+    }
+
+    public int getDayFiveClose() {
+        return dayFiveClose;
+    }
+
+    public void setDayFiveClose(int dayFiveClose) {
+        this.dayFiveClose = dayFiveClose;
+    }
+
+    public int getDaySixOpen() {
+        return daySixOpen;
+    }
+
+    public void setDaySixOpen(int daySixOpen) {
+        this.daySixOpen = daySixOpen;
+    }
+
+    public int getDaySixClose() {
+        return daySixClose;
+    }
+
+    public void setDaySixClose(int daySixClose) {
+        this.daySixClose = daySixClose;
+    }
+
+    public double getX() {
+        return x;
+    }
+
+    public void setX(double x) {
+        this.x = x;
+    }
+
+    public double getY() {
+        return y;
+    }
+
+    public void setY(double y) {
+        this.y = y;
+    }
+
+    public double getAngle() {
+        return angle;
+    }
+
+    public void setAngle(double angle) {
+        this.angle = angle;
     }
 
 }
