@@ -2,74 +2,155 @@
 <div class="col-md-3"  style="border: thin lightblue solid; border-radius: 5px;padding: 1em;">
     <form class="form-horizontal" ng-submit="saveShop()">
         <fieldset >
-          <legend>SHOP</legend>
-          <div class="form-group">
-            <label for="category" class="control-label col-xs-3" ><span class="label label-info">CATEGORY:</span></label>
-            <div class="col-xs-9">
-                <select type="text" ng-model="shop.category" class="form-control" id="category" placeholder="Category" required>
-                    <option value="CUCA">CUCA</option>
-                    <option value="FOOD">FOOD</option>
-                    <option value="TAWA">TAWA</option>
-                    <option value="ETHN">ETHN</option>
-                    <option value="DRIN">DRIN</option>
-                    <option value="BEER">BEER</option>
-                    <option value="SEDL">SEDL</option>
-                    <option value="MUSI">MUSI</option>
-                    <option value="CURI">CURI</option>
-                    <option value="PAPE">PAPE</option>
-                    <option value="BEBS">BEBS</option>
-                    <option value="LESC">LESC</option>
-                    <option value="HINS">HINS</option>
-                    <option value="HOHY">HOHY</option>
-                    <option value="CONV">CONV</option>
-                    <option value="HAND">HAND</option>
-                    <option value="SHFA">SHFA</option>
-                    <option value="WINE">WINE</option>
-                    <option value="VINT">VINT</option>
-                    <option value="VINY">VINY</option>
-                </select>
-                
+            <legend>SHOP: {{shop.id}}</legend>
+            <div class="form-group">
+                <label for="category" class="control-label col-xs-3" ><span class="label label-info">CATEGORY:</span></label>
+                <div class="col-xs-9">
+                    <select type="text" ng-model="shop.category" class="form-control" id="category" placeholder="Category" required>
+                        <option value="CUCA">CUCA</option>
+                        <option value="FOOD">FOOD</option>
+                        <option value="TAWA">TAWA</option>
+                        <option value="ETHN">ETHN</option>
+                        <option value="DRIN">DRIN</option>
+                        <option value="BEER">BEER</option>
+                        <option value="SEDL">SEDL</option>
+                        <option value="MUSI">MUSI</option>
+                        <option value="CURI">CURI</option>
+                        <option value="PAPE">PAPE</option>
+                        <option value="BEBS">BEBS</option>
+                        <option value="LESC">LESC</option>
+                        <option value="HINS">HINS</option>
+                        <option value="HOHY">HOHY</option>
+                        <option value="CONV">CONV</option>
+                        <option value="HAND">HAND</option>
+                        <option value="SHFA">SHFA</option>
+                        <option value="WINE">WINE</option>
+                        <option value="VINT">VINT</option>
+                        <option value="VINY">VINY</option>
+                    </select>
+
+                </div>
             </div>
-          </div>
-          <div class="form-group">
-            <label for="Name" class="control-label col-xs-3"><span class="label label-info">NAME:</span></label>
-            <div class="col-xs-9">
-              <input type="text" ng-model="shop.name" class="form-control" id="name" placeholder="Name" required>
+            <div class="form-group">
+                <label for="Name" class="control-label col-xs-3"><span class="label label-info">NAME:</span></label>
+                <div class="col-xs-9">
+                    <input type="text" ng-model="shop.name" class="form-control" id="name" placeholder="Name" required>
+                </div>
             </div>
-          </div>
-          <div class="form-group">
-            <label for="Description" class="control-label col-xs-3"><span class="label label-info">DESCRIPTION:</span></label>
-            <div class="col-xs-9">
-              <input type="text" ng-model="shop.description" class="form-control" id="description" placeholder="Description" required>
+            <div class="form-group">
+                <label for="Description" class="control-label col-xs-3"><span class="label label-info">DESCRIPTION:</span></label>
+                <div class="col-xs-9">
+                    <textarea rows="4" ng-model="shop.description" class="form-control" id="description" placeholder="Description" maxlength="500"></textarea>
+                </div>
             </div>
-          </div>
-          <div class="form-group">
-            <label for="Website" class="control-label col-xs-3"><span class="label label-info">WEBSITE:</span></label>
-            <div class="col-xs-9">
-              <input type="text" ng-model="shop.website" class="form-control" id="website" placeholder="Website" required>
+            <div class="form-group">
+                <label for="Website" class="control-label col-xs-3"><span class="label label-info">WEBSITE:</span></label>
+                <div class="col-xs-9">
+                    <input type="text" ng-model="shop.website" class="form-control" id="website" placeholder="Website">
+                </div>
             </div>
-          </div>
-          <div class="form-group">
-            <label for="Email" class="control-label col-xs-3"><span class="label label-info">EMAIL:</span></label>
-            <div class="col-xs-9">
-              <input type="text" ng-model="shop.email" class="form-control" id="email" placeholder="Email" required>
+            <div class="form-group">
+                <label for="Email" class="control-label col-xs-3"><span class="label label-info">EMAIL:</span></label>
+                <div class="col-xs-9">
+                    <input type="text" ng-model="shop.email" class="form-control" id="email" placeholder="Email">
+                </div>
             </div>
-          </div>
-          <div class="form-group">
-            <label for="Phone" class="control-label col-xs-3"><span class="label label-info">PHONE:</span></label>
-            <div class="col-xs-9">
-              <input type="text" ng-model="shop.phone" class="form-control" id="phone" placeholder="Phone" required>
+            <div class="form-group">
+                <label for="Phone" class="control-label col-xs-3"><span class="label label-info">PHONE:</span></label>
+                <div class="col-xs-9">
+                    <input type="text" ng-model="shop.phone" class="form-control" id="phone" placeholder="Phone">
+                </div>
             </div>
-          </div>
-          <div class="form-group">
-            <label for="Address" class="control-label col-xs-3"><span class="label label-info">ADDRESS:</span></label>
-            <div class="col-xs-9">
-              <input type="text" ng-model="shop.street" class="form-control" id="street" placeholder="Street Address" required>
-              <input type="text" ng-model="shop.houseNumber" class="form-control" id="houseNumber" placeholder="House Number">
+            <div class="form-group">
+                <label for="Address" class="control-label col-xs-3"><span class="label label-info">ADDRESS:</span></label>
+                <div class="col-xs-9">
+                    <input type="text" ng-model="shop.street" class="form-control" id="street" placeholder="Street Address">
+                    <input type="text" ng-model="shop.housenumber" class="form-control" id="houseNumber" placeholder="House Number">
+                </div>
             </div>
-          </div>
+            <div class="form-group">
+                <label for="placeId" class="control-label col-xs-3"><span class="label label-info">GOOGLE PLACE ID:</span></label>
+                <div class="col-xs-9">
+                    <input type="text" ng-model="shop.placeId" class="form-control" id="placeId" placeholder="Google placeId">
+                </div>
+            </div>
+            <!--
+            opening hours
+            -->
+            <span>Opening hours. <i>format: 0000 - 2359</i></span>
+            <div class="form-group">
+                <label for="Monday" class="control-label col-xs-3"><span class="label label-info">MONDAY:</span></label>
+                <div class="col-xs-4">
+                    <input type="text" ng-model="shop.dayNullOpen" class="form-control" id="street" placeholder="open from" maxlength="4" minlength="4">
+                    <input type="text" ng-model="shop.dayNullClose" class="form-control" id="houseNumber" placeholder="scloses at" maxlength="4" minlength="4">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="Tuesday" class="control-label col-xs-3"><span class="label label-info">TUESDAY:</span></label>
+                <div class="col-xs-4">
+                    <input type="text" ng-model="shop.dayOneOpen" class="form-control" id="street" placeholder="open from" maxlength="4" minlength="4">
+                    <input type="text" ng-model="shop.dayOneClose" class="form-control" id="houseNumber" placeholder="scloses at" maxlength="4" minlength="4">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="Wednesday" class="control-label col-xs-3"><span class="label label-info">WEDNESDAY:</span></label>
+                <div class="col-xs-4">
+                    <input type="text" ng-model="shop.dayTwoOpen" class="form-control" id="street" placeholder="open from" maxlength="4" minlength="4">
+                    <input type="text" ng-model="shop.dayTwoClose" class="form-control" id="houseNumber" placeholder="scloses at" maxlength="4" minlength="4">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="Thursday" class="control-label col-xs-3"><span class="label label-info">THURSDAY:</span></label>
+                <div class="col-xs-4">
+                    <input type="text" ng-model="shop.dayThreeOpen" class="form-control" id="street" placeholder="open from" maxlength="4" minlength="4">
+                    <input type="text" ng-model="shop.dayThreeClose" class="form-control" id="houseNumber" placeholder="scloses at" maxlength="4" minlength="4">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="Friday" class="control-label col-xs-3"><span class="label label-info">FRIDAY:</span></label>
+                <div class="col-xs-4">
+                    <input type="text" ng-model="shop.dayFourOpen" class="form-control" id="street" placeholder="open from" maxlength="4" minlength="4">
+                    <input type="text" ng-model="shop.dayFourClose" class="form-control" id="houseNumber" placeholder="scloses at" maxlength="4" minlength="4">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="Saturday" class="control-label col-xs-3"><span class="label label-info">SATURDAY</span></label>
+                <div class="col-xs-4">
+                    <input type="text" ng-model="shop.dayFiveOpen" class="form-control" id="street" placeholder="open from" maxlength="4" minlength="4">
+                    <input type="text" ng-model="shop.dayFiveClose" class="form-control" id="houseNumber" placeholder="scloses at" maxlength="4" minlength="4">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="Sunday" class="control-label col-xs-3"><span class="label label-info">SUNDAY:</span></label>
+                <div class="col-xs-4">
+                    <input type="text" ng-model="shop.daySixOpen" class="form-control" id="street" placeholder="open from" maxlength="4" minlength="4">
+                    <input type="text" ng-model="shop.daySixClose" class="form-control" id="houseNumber" placeholder="scloses at" maxlength="4" minlength="4">
+                </div>
+            </div>
+            <!--
+            Position
+            -->
+            <span>Position on map (DO NOT EDIT)</span>
+            <div class="form-group">
+                <label for="x" class="control-label col-xs-3"><span class="label label-info">X:</span></label>
+                <div class="col-xs-4">
+                    <input type="text" ng-model="shop.x" class="form-control" id="email" placeholder="x" readonly>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="y" class="control-label col-xs-3"><span class="label label-info">Y:</span></label>
+                <div class="col-xs-4">
+                    <input type="text" ng-model="shop.y" class="form-control" id="email" placeholder="y" readonly>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="angle" class="control-label col-xs-3"><span class="label label-info">ANGLE:</span></label>
+                <div class="col-xs-4">
+                    <input type="text" ng-model="shop.angle" class="form-control" id="email" placeholder="degrees" readonly>
+                </div>
+            </div>
         </fieldset>
-        
+
         <button type="submit" class="btn btn-primary">Save</button>
-      </form>
-    </div>
+    </form>
+</div>
