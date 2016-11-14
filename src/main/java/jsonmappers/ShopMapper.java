@@ -20,7 +20,7 @@ public class ShopMapper {
     private int id;
     private String name;
     private String street;
-    private String housenumber;
+    private String houseNumber;
     private String phone;
     private String email;
     private String website;
@@ -53,7 +53,7 @@ public class ShopMapper {
         id = shop.getId();
         name = shop.getName();
         street = shop.getStreet();
-        housenumber = shop.getHousenumber();
+        houseNumber = shop.getHousenumber();
         phone = shop.getPhone();
         email = shop.getEmail();
         cityInfo = shop.getCityInfo();
@@ -151,11 +151,11 @@ public class ShopMapper {
     }
 
     public String getHousenumber() {
-        return housenumber;
+        return houseNumber;
     }
 
     public void setHousenumber(String housenumber) {
-        this.housenumber = housenumber;
+        this.houseNumber = housenumber;
     }
 
     public CityInfo getCityInfo() {
