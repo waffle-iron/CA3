@@ -57,7 +57,7 @@ public class FacadeTest {
     }
   
   @Test  
-  public void dummyTest(){ //sdfsdf
+  public void dummyTest(){
     assertTrue(true);  //Really "nothing" to test in the initial version of the seed
   }
   
