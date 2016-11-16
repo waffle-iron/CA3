@@ -26,7 +26,7 @@ public class ShopMapper {
     private String website;
     private Category category;
     private String description;
-    private String placeId;
+    private String googleShopId;
     private CityInfo cityInfo;
     private User user;
     //open/close hours
@@ -64,7 +64,7 @@ public class ShopMapper {
         }    
         category = shop.getCategory();
         description = shop.getDescription();
-        placeId = shop.getGoogleShopId();
+        googleShopId = shop.getGoogleShopId();
         dayNullOpen = shop.getDayNullOpen();
         dayNullClose = shop.getDayNullClose();
         dayOneOpen = shop.getDayOneOpen();
@@ -86,11 +86,11 @@ public class ShopMapper {
     }
 
     public String getPlaceId() {
-        return placeId;
+        return googleShopId;
     }
 
-    public void setPlaceId(String placeId) {
-        this.placeId = placeId;
+    public void setPlaceId(String googleShopId) {
+        this.googleShopId = googleShopId;
 
     }
 

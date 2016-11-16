@@ -202,7 +202,7 @@ public class InitialSeedRestIntegrationTest {
         given()
         .contentType("application/json")
         .body(newshop)
-        .when().post("/api/shop").then()
+        .when().post("/api/shop/add").then()
         .statusCode(200);
     }
     
