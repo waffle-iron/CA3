@@ -1,4 +1,5 @@
 [![Build Status](https://travis-ci.org/rpuls/CA3.svg?branch=master)](https://travis-ci.org/rpuls/CA3)
+[![Stories in Ready](https://badge.waffle.io/rpuls/CA3.png?label=ready&title=Ready)](http://waffle.io/rpuls/CA3)
 
 <div >
   <uib-accordion>
