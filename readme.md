@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/rpuls/CA3.svg?branch=master)](https://travis-ci.org/rpuls/CA3)
+
 <div >
   <uib-accordion>
     <uib-accordion-group heading="Getting the Seed" >
